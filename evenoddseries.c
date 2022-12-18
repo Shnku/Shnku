@@ -43,7 +43,7 @@ int evenodd(int no){
 
 //void disp_oddevn_array(int a[100],int b[100])
 //{
-//    // int size= sizeof(a[100])+sizeof(b[100]);//wrong because it returns size of int
+    // int size= sizeof(a[100])+sizeof(b[100]);//wrong because it returns size of int
 
 //    for (int i=0; i<size; i++)
 //    { 
