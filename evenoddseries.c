@@ -36,6 +36,7 @@ int main()
     }
     printf("..............................\n");
     return 0;
+    exit(1);
 }
 
 int evenodd(int no)
