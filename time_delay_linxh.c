@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <time.h>
-
-void delay(int);
+#include <unistd.h>
 
 int main() {
   int i, j, nth;
@@ -10,24 +8,14 @@ int main() {
   for (i = 1; i <= nth; i++) {
     for (j = nth; j >= i; j--) {
       printf("_");
-      delay(20);
-      printf(".");
+      sleep(1);
     }
-    delay(10);
     for (int k = 1; k <= i; k++) {
       printf("*");
-      delay(30);
-      printf(".");
+      sleep(1);
     }
 
     printf("\n");
-    delay(10);
+    sleep(1);
   }
-}
-
-void delay(int no_os_sec) {
-  int milisec = no_os_sec * 1000;
-  clock_t start = clock();
-  while (clock() < start + milisec)
-    ;
 }
