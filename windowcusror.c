@@ -9,7 +9,8 @@ void gotoxy(int x, int y) { printf("%c[%d;%df", 0x1B, y, x); }
 
 //void clrscr(void) { system("clear"); }
 
-int main() {
+int main()
+{
   system("clear");
   int x = 10, y = 20;
   gotoxy(3, y);                 // move cursor position
