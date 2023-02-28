@@ -28,7 +28,7 @@ int drawbox()
 int main()
 {
     drawbox();
-    int key;
+    char key;
     printf("\nenter wherer to move: \n");
 label:
     key = getchar();
