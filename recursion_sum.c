@@ -19,7 +19,7 @@ int sum(int nth)
     if (nth == 1)
     {
         printf("\nif turu: %d", nth);
-        return nth;
+        return 1;//nth;
     }
     printf("\n%d + sum(%d)", nth, nth - 1);
     return nth + sum(nth - 1);

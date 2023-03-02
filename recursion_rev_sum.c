@@ -2,7 +2,10 @@
 int sum(int a)
 {
     int i = 0;
-    return (i == a ? a : (a - sum(i + 1)));
+    if (i == a)
+        return a;
+    else
+        return a - sum(i + 1);
 }
 int main()
 {
