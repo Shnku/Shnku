@@ -28,6 +28,7 @@ void matrix<T>::getdata()
         for (int j = 0; j < col; j++)
             cin >> m[i][j];
 }
+
 template <class T>
 void matrix<T>::display()
 {
@@ -38,6 +39,7 @@ void matrix<T>::display()
             cout << "\t" << m[i][j];
     }
 }
+
 template <class T>
 matrix<T> matrix<T>::addition(matrix<T> B)
 {
@@ -47,6 +49,7 @@ matrix<T> matrix<T>::addition(matrix<T> B)
             C.m[i][j] = m[i][j] + B.m[i][j];
     return C;
 }
+
 template <class T>
 matrix<T> matrix<T>::sub(matrix<T> B)
 {
@@ -56,6 +59,7 @@ matrix<T> matrix<T>::sub(matrix<T> B)
             C.m[i][j] = m[i][j] - B.m[i][j];
     return C;
 }
+
 template <class T>
 matrix<T> matrix<T>::trans()
 {
@@ -65,6 +69,7 @@ matrix<T> matrix<T>::trans()
             C.m[i][j] = m[j][i];
     return C;
 }
+
 template <class T>
 matrix<T> matrix<T>::mul(matrix<T> B)
 {
@@ -82,6 +87,7 @@ matrix<T> matrix<T>::mul(matrix<T> B)
     }
     return C;
 }
+
 int main()
 {
     // int r, c;
@@ -114,7 +120,6 @@ int main()
     C.display();
 }
 
-
 /*
 output..
 Enter matrix1 Elements1 2 3
@@ -123,29 +128,29 @@ Enter matrix1 Elements1 2 3
 Enter matrix2 Elements4 5 6
 1 2 3
 
-Matrix1 is: 
+Matrix1 is:
 
         1       2       3
         4       5       6
-Matrix2 is: 
+Matrix2 is:
 
         4       5
         6       1
         2       3
-Matrix Addition is: 
+Matrix Addition is:
 
         5       7       -303545389
         10      6       6
-Matrix subtraction is: 
+Matrix subtraction is:
 
         -3      -3      303545395
         -2      4       6
-Matrix transposition is: 
+Matrix transposition is:
 
         1       4       0
         2       5       0
-Matrix multiplication is: 
+Matrix multiplication is:
 
         16      7       -303545392
-        46      25      -1214181568⏎     
+        46      25      -1214181568⏎
 */
