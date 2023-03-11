@@ -56,13 +56,13 @@ To publish to GitHub
 
 You can fix this by fetching and merging the changes made on the remote branch with the changes that you have made locally:
 
-$ git fetch origin
+```$ git fetch origin```
 > Fetches updates made to an online repository
-$ git merge origin YOUR_BRANCH_NAME
+```$ git merge origin YOUR_BRANCH_NAME```
 > Merges updates made online with your local work
 
 Or, you can simply use git pull to perform both commands at once:
 
-$ git pull origin YOUR_BRANCH_NAME
+```$ git pull origin YOUR_BRANCH_NAME```
 > Grabs online updates and merges them with your local wor
 
