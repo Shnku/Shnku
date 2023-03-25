@@ -1,4 +1,4 @@
-#include <stdio.h>
+// #include <stdio.h>
 void word_sap(char *str)
 {
     char word[15];
@@ -21,10 +21,4 @@ void word_sap(char *str)
     }
 }
 
-void main()
-{
-    char s[50];
-    printf("en the sen: ");
-    fgets(s, 50, stdin);
-    word_sap(s);
-}
+
