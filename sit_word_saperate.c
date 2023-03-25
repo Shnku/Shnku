@@ -1,7 +1,7 @@
 #include <stdio.h>
 void word_sap(char *str)
 {
-    char *word;
+    char word[15];
     int i = 0, j;
     while (str[i] != '\0')
     {
@@ -17,6 +17,7 @@ void word_sap(char *str)
         }
         word[j] = '\0';
         printf("\n%s", word);
+        i++;
     }
 }
 
