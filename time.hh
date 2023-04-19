@@ -1,12 +1,14 @@
 class mytime
 {
 private:
-    int hr, min, sec;
+    int hour, min, sec;
 
 public:
-    mytime(int h, int m, int s)
+    mytime(int h, int m = 0, int s = 0)
     {
-        hr = h, min = m, sec = s;
+        hour = h, min = m, sec = s;
     }
     ~mytime() {}
+
+    
 };
