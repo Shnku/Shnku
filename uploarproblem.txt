@@ -1,0 +1,66 @@
+This error message occurs when you try to run git pull and there are conflicting changes between your local branch and the remote branch you are trying to pull from.
+
+Git is unsure how to merge the changes and it needs you to specify how you want to handle the merge. The error message provides some hints on how to handle the situation.
+
+You can either merge the changes with the merge strategy or rebase your changes on top of the changes in the remote branch with the rebase strategy.
+
+You can set your default preference for all repositories using the git config command with the pull.rebase or pull.ff options. You can also override the default behavior on a per-invocation basis using the --rebase, --no-rebase, or --ff-only options.
+
+To fix the error, choose the appropriate strategy for your situation and run the appropriate command to set your preference or specify it on the command line when you run git pull. For example, to use the merge strategy, run:
+
+git config pull.rebase false
+git pull
+
+git config pull.rebase true
+git pull
+
+git config pull.ff only
+git pull
+
+This error message occurs when you have conflicts in your working tree that need to be resolved before you can pull changes from the remote branch.
+
+To resolve the conflicts, you need to first run git status to see which files have conflicts. The output of git status will show you which files have conflicts and which files have been modified.
+
+To resolve the conflicts, you need to open the files with conflicts and edit them manually to remove the conflict markers and make the necessary changes to resolve the conflicts.
+
+After you have resolved the conflicts, you need to stage the changes using git add command.
+
+csharp
+
+git add <file>
+
+Once you have staged the changes, you can commit them using the git commit command.
+
+sql
+
+git commit -m "Resolved conflicts"
+
+After you have committed the changes, you can run git pull again to fetch and merge the changes from the remote branch.
+
+If you run into conflicts during the pull, repeat the steps above to resolve the conflicts before committing your changes.
+
+
+....................................................................
+Your GitHub password is the password you use to sign in to your GitHub account. If you're having trouble signing in to your account, you can reset your password by following these steps:
+
+    Go to the GitHub login page (https://github.com/login).
+    Click on the "Forgot password?" link.
+    Enter the email address associated with your GitHub account and click "Send password reset email".
+    Check your email for a password reset link from GitHub.
+    Click on the password reset link and follow the instructions to create a new password.
+
+Once you have reset your password, try running git push again and enter your new password when prompted.
+
+If you continue to have issues with your password, you can also try using an access token instead of your password. To create a personal access token, follow these steps:
+
+    Go to your GitHub settings (https://github.com/settings).
+    Click on "Developer settings" in the left-hand menu.
+    Click on "Personal access tokens" in the left-hand menu.
+    Click on "Generate new token".
+    Give the token a name and select the scopes you need.
+    Click on "Generate token".
+    Copy the generated token and use it instead of your password when prompted.
+
+Note that access tokens have the same level of access as your password, so keep your tokens secret and don't share them with others.
+
+
