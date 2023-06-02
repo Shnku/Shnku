@@ -17,7 +17,7 @@ int main()
     {
         printf("\n|%s|  ", nolist[i]);
     }
-    printf("\nEnter yer choice:  ");
+    printf("\n\nEnter yer choice:  ");
     scanf("%d", &choice);
 
     cheaker(num, choice);
