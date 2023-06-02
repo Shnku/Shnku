@@ -17,7 +17,7 @@ int main()
     {
         printf("\n|%s|  ", nolist[i]);
     }
-    printf("\nEnter yer choice... ");
+    printf("\nEnter yer choice:  ");
     scanf("%d", &choice);
 
     cheaker(num, choice);
@@ -46,7 +46,6 @@ void cheaker(int no, int choice)
             break;
 
         case 2:
-
             sum += power(rem, no_of_digit(no));
             break;
 
