@@ -1,9 +1,11 @@
 #include <stdio.h>
+#define ListItem 5
 
-char nolist[][20] = {"perfect", "krishnamurty", "armstrong"};
+char nolist[ListItem][20] = {"perfectNo", "krishnamurtyNo", "armstrongNo", "palindroneNo", "squaresum"};
 long facto(int n);
 long power(int n, int p);
 int no_of_digit(int n);
+void printchoicelist(void);
 void cheaker(int no, int key);
 
 int main()
@@ -12,11 +14,7 @@ int main()
     printf("\nenter the number: ");
     scanf("%d", &num);
 
-    printf("\nAvailable choices are...\n");
-    for (int i = 0; i < 3; i++)
-    {
-        printf("\n|%s|  ", nolist[i]);
-    }
+    printchoicelist();
     printf("\n\nEnter yer choice:  ");
     scanf("%d", &choice);
 
@@ -49,6 +47,14 @@ void cheaker(int no, int choice)
             sum += power(rem, no_of_digit(no));
             break;
 
+        case 3:
+            sum = sum * 10 + rem;
+            break;
+
+        case 4:
+            sum += power(rem, 2);
+            break;
+
         default:
             printf("\nneed proper choice....");
             break;
@@ -79,3 +85,30 @@ int no_of_digit(int n)
     }
     return len;
 }
+
+void printchoicelist(void)
+{
+    printf("\nAvailable choices are...\n");
+    for (int i = 0; i < ListItem; i++)
+    {
+        printf("\n(%d) |%s|  ", i + 1, nolist[i]);
+    }
+}
+
+// output...
+/*
+
+enter the number: 4221224
+
+Available choices are...
+
+(1) |perfectNo|
+(2) |krishnamurtyNo|
+(3) |armstrongNo|
+(4) |palindroneNo|
+(5) |squaresum|
+
+Enter yer choice:  4
+
+IS THE NO palindroneNo? yes
+*/
