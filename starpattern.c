@@ -1,5 +1,47 @@
 #include <stdio.h>
+int main()
+{
+    printf("\nen no of row...");
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = n; j > i; j--)
+        {
+            printf("  ");
+        }
+        for (int k = 0; k < 2 * i - 1; k++)
+        {
+            printf("A ");
+        }
+        printf("\n");
+    }
+    for (int i = n; i > 0; i--)
+    {
+        for (int j = n; j > i; j--)
+        {
+            printf("  ");
+        }
+        for (int k = 0; k < 2 * i - 1; k++)
+        {
+            printf("A ");
+        }
+        printf("\n");
+    }
+}
 
+// output..
+/*
+en no of row...3
+
+    A
+  A A A
+A A A A A
+  A A A
+    A
+*/
+
+#if 0
 int main()
 {
     printf("\nen no of row...");
@@ -25,6 +67,8 @@ int main()
 
     return 0;
 }
+
+#endif
 
 // output..
 /*
