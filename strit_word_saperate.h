@@ -1,4 +1,4 @@
-// #include <stdio.h>
+#include <stdio.h>
 void word_sap(char *str)
 {
     char word[15];
@@ -23,7 +23,6 @@ void word_sap(char *str)
 
 void short_name_maker(char *str)
 {
-    char new_str[50];
     int indx_arr[5];
     int index = -1;
     for (int i = 0; *str; i++)
@@ -32,7 +31,21 @@ void short_name_maker(char *str)
             indx_arr[++index] = i;
     }
     printf("\nindex is=no of space:  %d", index);
-    while (*str != '\0')
+
+    char new_str[50];
+    int newstr_indx = 0;
+    new_str[newstr_indx] = str[0];
+    for (int i = 1; str[i] != '\0'; i++)
     {
+        if (str[i] == indx_arr[i])
+        {
+            new_str[newstr_indx++] = str[i];
+        }
+        else if (str[i] == ' ')
+        {
+            new_str[newstr_indx++] = '.';
+            new_str[newstr_indx++] = str[i];
+        }
     }
+    printf("nre string: %s", new_str);
 }
