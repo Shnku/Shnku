@@ -21,4 +21,18 @@ void word_sap(char *str)
     }
 }
 
-
+void short_name_maker(char *str)
+{
+    char new_str[50];
+    int indx_arr[5];
+    int index = -1;
+    for (int i = 0; *str; i++)
+    {
+        if (*str == ' ')
+            indx_arr[++index] = i;
+    }
+    printf("\nindex is=no of space:  %d", index);
+    while (*str != '\0')
+    {
+    }
+}
