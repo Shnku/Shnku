@@ -1,4 +1,7 @@
-#include <stdio.h>
+// #include <stdio.h>
+void swap(char *x, char *y);
+
+/*saperate words form string............*/
 void word_sap(char *str)
 {
     char word[15];
@@ -21,6 +24,7 @@ void word_sap(char *str)
     }
 }
 
+/*This is a name maker.:  a.b.bag. like.....*/
 void short_name_maker(char *str)
 {
     int lst_sps_indx;
@@ -44,9 +48,44 @@ void short_name_maker(char *str)
         }
     }
     new_str[nu_indx++] = '.';
-    for (int i = lst_sps_indx; str[i]; i++)
+    for (int i = lst_sps_indx + 1; str[i]; i++)
     {
         new_str[nu_indx++] = str[i];
     }
     printf("\nThe string is: %s", new_str);
+}
+
+/*to short as alphabetically order abcd....*/
+void alplabetical_order(char str[])
+{
+    int len = 0;
+    char copy[50];
+    int index = 0;
+    while (*str)
+    {
+        len++;
+        copy[index++] = *str;
+        str++;
+    }
+    printf("\nthe len is: %d", len);
+    for (int i = 0; i < len - 1; i++)
+    {
+        for (int j = 0; j < len - i - 1; j++)
+        {
+            if (copy[j] > copy[j + 1])
+            {
+                swap(&copy[j], &copy[j + 1]);
+                // copy[index++] = copy[j];
+            }
+        }
+    }
+    printf("\nnew string is : %s", copy);
+}
+
+/*swapping characters....*/
+void swap(char *x, char *y)
+{
+    char temp = *x;
+    *x = *y;
+    *y = temp;
 }
