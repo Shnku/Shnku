@@ -23,29 +23,30 @@ void word_sap(char *str)
 
 void short_name_maker(char *str)
 {
-    int indx_arr[5];
-    int index = -1;
-    for (int i = 0; *str; i++)
+    int lst_sps_indx;
+    for (int i; str[i] != '\0'; i++)
     {
-        if (*str == ' ')
-            indx_arr[++index] = i;
+        if (str[i] == ' ')
+            lst_sps_indx = i;
     }
-    printf("\nindex is=no of space:  %d", index);
-
+    // printf("\nlst spc indx: %d", lst_sps_indx);
     char new_str[50];
-    int newstr_indx = 0;
-    new_str[newstr_indx] = str[0];
+    int nu_indx = 0;
+    new_str[nu_indx++] = str[0];
     for (int i = 1; str[i] != '\0'; i++)
     {
-        if (str[i] == indx_arr[i])
-        {
-            new_str[newstr_indx++] = str[i];
-        }
+        if (i == lst_sps_indx)
+            break;
         else if (str[i] == ' ')
         {
-            new_str[newstr_indx++] = '.';
-            new_str[newstr_indx++] = str[i];
+            new_str[nu_indx++] = '.';
+            new_str[nu_indx++] = str[i + 1];
         }
     }
-    printf("nre string: %s", new_str);
+    new_str[nu_indx++] = '.';
+    for (int i = lst_sps_indx; str[i]; i++)
+    {
+        new_str[nu_indx++] = str[i];
+    }
+    printf("\nThe string is: %s", new_str);
 }
