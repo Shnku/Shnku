@@ -37,20 +37,17 @@ void short_name_maker(char *str)
     char new_str[50];
     int nu_indx = 0;
     new_str[nu_indx++] = str[0];
+    new_str[nu_indx++] = '.';
     for (int i = 1; str[i] != '\0'; i++)
     {
-        if (i == lst_sps_indx)
-            break;
+        if (i >= lst_sps_indx)
+            new_str[nu_indx++] = str[i + 1]; // to skip space..
+
         else if (str[i] == ' ')
         {
-            new_str[nu_indx++] = '.';
             new_str[nu_indx++] = str[i + 1];
+            new_str[nu_indx++] = '.';
         }
-    }
-    new_str[nu_indx++] = '.';
-    for (int i = lst_sps_indx + 1; str[i]; i++)
-    {
-        new_str[nu_indx++] = str[i];
     }
     printf("\nThe string is: %s", new_str);
 }
