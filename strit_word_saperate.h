@@ -1,4 +1,7 @@
-#include <stdio.h>
+// #include <stdio.h>
+void swap(char *x, char *y);
+
+/*saperate words form string............*/
 void word_sap(char *str)
 {
     char word[15];
@@ -21,31 +24,65 @@ void word_sap(char *str)
     }
 }
 
+/*This is a name maker.:  a.b.bag. like.....*/
 void short_name_maker(char *str)
 {
-    int indx_arr[5];
-    int index = -1;
-    for (int i = 0; *str; i++)
+    int lst_sps_indx;
+    for (int i; str[i] != '\0'; i++)
     {
-        if (*str == ' ')
-            indx_arr[++index] = i;
+        if (str[i] == ' ')
+            lst_sps_indx = i;
     }
-    printf("\nindex is=no of space:  %d", index);
-
+    // printf("\nlst spc indx: %d", lst_sps_indx);
     char new_str[50];
-    int newstr_indx = 0;
-    new_str[newstr_indx] = str[0];
+    int nu_indx = 0;
+    new_str[nu_indx++] = str[0];
+    new_str[nu_indx++] = '.';
     for (int i = 1; str[i] != '\0'; i++)
     {
-        if (str[i] == indx_arr[i])
-        {
-            new_str[newstr_indx++] = str[i];
-        }
+        if (i >= lst_sps_indx)
+            new_str[nu_indx++] = str[i + 1]; // to skip space..
+
         else if (str[i] == ' ')
         {
-            new_str[newstr_indx++] = '.';
-            new_str[newstr_indx++] = str[i];
+            new_str[nu_indx++] = str[i + 1];
+            new_str[nu_indx++] = '.';
         }
     }
-    printf("nre string: %s", new_str);
+    printf("\nThe string is: %s", new_str);
+}
+
+/*to short as alphabetically order abcd....*/
+void alplabetical_order(char str[])
+{
+    int len = 0;
+    char copy[50];
+    int index = 0;
+    while (*str)
+    {
+        len++;
+        copy[index++] = *str; //copy needed ..edited actual string causing problem..
+        str++;
+    }
+    printf("\nthe len is: %d", len);
+    for (int i = 0; i < len - 1; i++)
+    {
+        for (int j = 0; j < len - i - 1; j++)
+        {
+            if (copy[j] > copy[j + 1])
+            {
+                swap(&copy[j], &copy[j + 1]);
+                // copy[index++] = copy[j];
+            }
+        }
+    }
+    printf("\nnew string is : %s", copy);
+}
+
+/*swapping characters....*/
+void swap(char *x, char *y)
+{
+    char temp = *x;
+    *x = *y;
+    *y = temp;
 }
