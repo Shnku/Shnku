@@ -18,5 +18,5 @@ Here are some ideas to get you started:
 
 
 <a href="https://github.com/Shnku" align="center">
-  <img alt="GitHub Snake Dark" src="https://github.com/Shnku/Shnku/readme/raw/github-contribution-grid-snake-dark.svg#gh-dark-mode-only" />
+  <img alt="GitHub Snake Dark" src="https://github.com/Shnku/Shnku/readme/github-contribution-grid-snake-dark.svg#gh-dark-mode-only" />
 </a>
