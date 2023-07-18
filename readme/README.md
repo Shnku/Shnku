@@ -20,3 +20,4 @@ Here are some ideas to get you started:
 <a href="" align="center">
   <img alt="GitHub Snake Dark" src=" https://raw.githubusercontent.com/Shnku/Shnku/main/readme/github-contribution-grid-snake-dark.svg"/>
 </a>
+<!-- i get this form:   https://github.com/Technetium1/Technetium1/blob/main/README.md>
