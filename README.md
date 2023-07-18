@@ -12,3 +12,4 @@
 <a href="https://github.com/Shnku" align="center">
   <img alt="GitHub Snake Dark" src="https://github.com/Shnku/Shnku/raw/main/readme/github-contribution-grid-snake-dark.svg#gh-dark-mode-only"/>
 </a>
+<!-->
