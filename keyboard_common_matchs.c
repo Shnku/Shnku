@@ -1,3 +1,14 @@
+/*
+Given an array of strings words, return the words 
+that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+
+In the American keyboard:
+
+the first row consists of the characters "qwertyuiop",
+the second row consists of the characters "asdfghjkl", and
+the third row consists of the characters "zxcvbnm".
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 char *get_prefix(char **str, int len)
@@ -10,6 +21,7 @@ char *get_prefix(char **str, int len)
     for (i = 0; str[0][i] != '\0'; i++)
     {
         temp = (char *)realloc(temp, (i + 1) * sizeof(char));
+        // make i+2 to fix that error...cause no space for null allocated
         temp[i] = str[0][i];
     }
     temp = (char *)realloc(temp, (i + 1) * sizeof(char));
@@ -33,18 +45,19 @@ char *get_prefix(char **str, int len)
     return temp;
 }
 
+void test(char *str)
+{
+    char *temp = str;
+    printf("%s", temp);
+}
+
 int main()
 {
-    char *str[] = {"this", "thi", "th"};
+    char *str[] = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};
+    // test(str[0]);
     char *a;
     a = get_prefix(str, 3);
     printf("\nthe output is:%s", a);
     free(a);
     return 0;
 }
-
-/*
-if you do not realloc the temp pointer to a size of (i + 1) * sizeof(char), the temp[i] = '\0' 
-statement will write a null character to a memory location that is outside of the memory block that is pointed to by the temp pointer. 
-This will cause a segmentation fault.
-*/
