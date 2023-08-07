@@ -61,7 +61,7 @@ void alplabetical_order(char str[])
     while (*str)
     {
         len++;
-        copy[index++] = *str; //copy needed ..edited actual string causing problem..
+        copy[index++] = *str; // copy needed ..edited actual string causing problem..
         str++;
     }
     printf("\nthe len is: %d", len);
@@ -86,3 +86,4 @@ void swap(char *x, char *y)
     *x = *y;
     *y = temp;
 }
+
