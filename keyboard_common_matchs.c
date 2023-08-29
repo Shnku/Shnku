@@ -19,8 +19,8 @@ char *extract_word(char *s, int start, int end)
 {
     char *p = (char *)calloc((end - start + 1), sizeof(char));
     char *point_p = p;
-    // printf("first: %u", p);
     chek_memallocation(p);
+    // printf("first: %u", p);
     // int j=0;
     for (int i = start; i < end; i++)
     {
@@ -28,7 +28,7 @@ char *extract_word(char *s, int start, int end)
         p++;
         // printf("\n%u", p);
     }
-    *p = '\0';
+    *p = '\0'; // p[j]='\0';
     // printf("\nnew:\t%u \t %u", p, point_p);
     // printf("\n%u", p - end - start);
     // return p - end - start;
