@@ -22,10 +22,9 @@ char *extract_word(char *s, int start, int end)
     // printf("first: %u", p);
     chek_memallocation(p);
     // int j=0;
-    for (int i = start; i < end && s[i] != '\0'; i++)
+    for (int i = start; i < end; i++)
     {
-        // p[j++] = s[i]; //*p=s[i] //!wrong
-        *p = s[i];
+        *p = s[i]; // p[j++] = s[i];
         p++;
         // printf("\n%u", p);
     }
@@ -47,46 +46,48 @@ new:    3331895973       3331895968
 word is:: this
 */
 
-int is_contained(char *str, char *word)
+int is_contained(const char *str, char *word)
 {
-    if (*word == '\0')
-        return 0;
+    if (*word == '\0' || *str == '\0')
+        return 404;
     int count = 0;
-    while (*str && *word)
+    for (; *str; str++)
     {
-        if (*str == *word)
+        for (; *word; word++)
         {
-            count++;
-            word++;
+            if (*str == *word)
+                count++;
         }
-        str++;
     }
     return count == strlen(word);
 }
 
 int main()
 {
-    char str[] = "this is a demo sentense";
+    char str[] = "this is a demo akadsd youtoyr";
     // char *word = extract_word(str, 0, 5);
     // printf("\nword is:: %s", word);
     // free(word);
     int start = 0;
-    for (int end = 1; str[end]; end++)
+    for (int end = 1; end <= strlen(str); end++)
+    // for (int end = 1; str[end]; end++) //!it cant read the lastword..
     {
         char *a = NULL;
-        if (str[end] != ' ')
-            continue;
-        else
+        if (str[end] == ' ' || str[end] == '\0')
         {
             a = extract_word(str, start, end);
-            printf("\nextracted word: %s\n== %s\n== %s\n== %s", a, keyboard[0], keyboard[1], keyboard[2]);
+            printf("\nextracted word: _%s_\n== %s\n== %s\n== %s", a, keyboard[0], keyboard[1], keyboard[2]);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; keyboard[i] != NULL; i++)
             {
-                int status = get_prefix(keyboard[i], a);
+                int status = is_contained(keyboard[i], a);
                 printf("\nstatus is: %d", status);
+                if (!status)
+                {
+                    printf("\tyes this is contains");
+                }
             }
-            start = end;
+            start = end + 1;
             free(a);
         }
     }
@@ -101,3 +102,49 @@ void chek_memallocation(char *p)
         exit(EXIT_FAILURE);
     }
 }
+
+// output..
+/*
+extracted word: _this_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 1
+status is: 1
+extracted word: _is_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 1
+status is: 1
+extracted word: _a_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 0    yes this is contains
+status is: 1
+extracted word: _demo_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 1
+status is: 1
+extracted word: _akadsd_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 0    yes this is contains
+status is: 1
+extracted word: _youtoyr_
+== qwertyuiop
+== asdfghjkl
+== zxcvbnm
+status is: 1
+status is: 1
+status is: 1⏎
+*/
