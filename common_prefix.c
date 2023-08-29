@@ -10,7 +10,6 @@ char *get_prefix(char **str, int len)
     for (i = 0; str[0][i] != '\0'; i++)
     {
         temp = (char *)realloc(temp, (i + 1) * sizeof(char));
-        // make i+2 to fix that error...cause no space for null allocated
         temp[i] = str[0][i];
     }
     temp = (char *)realloc(temp, (i + 1) * sizeof(char));
@@ -34,19 +33,18 @@ char *get_prefix(char **str, int len)
     return temp;
 }
 
-void test(char *str)
-{
-    char *temp = str;
-    printf("%s", temp);
-}
-
 int main()
 {
     char *str[] = {"this", "thi", "th"};
-    // test(str[0]);
     char *a;
     a = get_prefix(str, 3);
     printf("\nthe output is:%s", a);
     free(a);
     return 0;
 }
+
+/*
+if you do not realloc the temp pointer to a size of (i + 1) * sizeof(char), the temp[i] = '\0' 
+statement will write a null character to a memory location that is outside of the memory block that is pointed to by the temp pointer. 
+This will cause a segmentation fault.
+*/
