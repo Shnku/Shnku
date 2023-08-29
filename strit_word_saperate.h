@@ -1,6 +1,17 @@
 // #include <stdio.h>
 void swap(char *x, char *y);
 
+int strlen(char *s)
+{
+    char *p = s;
+    while (*s)
+    {
+        s++;
+    }
+    return (s - p) / sizeof(char);
+    // return s-p; //this is works also..
+}
+
 /*saperate words form string............*/
 void word_sap(char *str)
 {
@@ -87,3 +98,15 @@ void swap(char *x, char *y)
     *y = temp;
 }
 
+int get_prefix(char *str, char *word)
+{
+    int point = 0;
+    char *temp;
+    while (*str || *word)
+    {
+        point = (*str == *word) ? point + 1 : 0;
+        str++;
+        word++;
+    }
+    return point == strlen(word);
+}
