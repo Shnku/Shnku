@@ -48,23 +48,37 @@ word is:: this
 
 int is_contained(const char *str, char *word)
 {
-    if (*word == '\0' || *str == '\0')
+    if (*word == '\0')
         return 404;
+
+    int len = 0;
+    while (*word)
+    {
+        len++;
+        word++;
+    }
+    printf("\nlen= %d", len);
+
     int count = 0;
     for (; *str; str++)
     {
         for (; *word; word++)
         {
             if (*str == *word)
+            {
+                printf("%c=%c", *word, *str);
+                printf("\tcount= %d", count);
                 count++;
+            }
         }
     }
-    return count != strlen(word);
+    printf("\tcount= %d", count);
+    return count == len;
 }
 
 int main()
 {
-    char str[] = "this is a demo akadsd youtoyr";
+    char str[] = "this is al demo akadsdl ytoure thid";
     // char *word = extract_word(str, 0, 5);
     // printf("\nword is:: %s", word);
     // free(word);
@@ -144,7 +158,7 @@ extracted word: _youtoyr_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 0
+status is: 0 //?why this is not coming??
 status is: 0
 status is: 0⏎
 */
