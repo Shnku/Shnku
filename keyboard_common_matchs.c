@@ -59,7 +59,7 @@ int is_contained(const char *str, char *word)
                 count++;
         }
     }
-    return count == strlen(word);
+    return count != strlen(word);
 }
 
 int main()
@@ -82,7 +82,7 @@ int main()
             {
                 int status = is_contained(keyboard[i], a);
                 printf("\nstatus is: %d", status);
-                if (!status)
+                if (status)
                 {
                     printf("\tyes this is contains");
                 }
@@ -109,42 +109,42 @@ extracted word: _this_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
-status is: 1
-status is: 1
+status is: 0
+status is: 0
+status is: 0
 extracted word: _is_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
-status is: 1
-status is: 1
+status is: 0
+status is: 0
+status is: 0
 extracted word: _a_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
+status is: 0
 status is: 0    yes this is contains
-status is: 1
+status is: 0
 extracted word: _demo_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
-status is: 1
-status is: 1
+status is: 0
+status is: 0
+status is: 0
 extracted word: _akadsd_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
-status is: 0    yes this is contains
-status is: 1
+status is: 0
+status is: 1    yes this is contains
+status is: 0
 extracted word: _youtoyr_
 == qwertyuiop
 == asdfghjkl
 == zxcvbnm
-status is: 1
-status is: 1
-status is: 1⏎
+status is: 0
+status is: 0
+status is: 0⏎
 */
