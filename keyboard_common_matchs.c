@@ -51,34 +51,27 @@ int is_contained(const char *str, char *word)
     if (*word == '\0')
         return 404;
 
-    int len = 0;
-    while (*word)
-    {
-        len++;
-        word++;
-    }
-    printf("\nlen= %d", len);
-
     int count = 0;
     for (; *str; str++)
     {
-        for (; *word; word++)
+        char *point_1st = word;
+        for (; *point_1st; point_1st++)
         {
-            if (*str == *word)
+            if (*str == *point_1st)
             {
-                printf("%c=%c", *word, *str);
-                printf("\tcount= %d", count);
+                printf("\n%c=%c", *point_1st, *str);
+                // printf("\tcount= %d", count);
                 count++;
             }
         }
     }
-    printf("\tcount= %d", count);
-    return count == len;
+    // printf("\tcount= %d", count);
+    return count == strlen(word);
 }
 
 int main()
 {
-    char str[] = "this is al demo akadsdl ytoure thid";
+    char str[] = "this is a demo akadsdl ytoure thid";
     // char *word = extract_word(str, 0, 5);
     // printf("\nword is:: %s", word);
     // free(word);
@@ -90,15 +83,16 @@ int main()
         if (str[end] == ' ' || str[end] == '\0')
         {
             a = extract_word(str, start, end);
-            printf("\nextracted word: _%s_\n== %s\n== %s\n== %s", a, keyboard[0], keyboard[1], keyboard[2]);
+            printf("\nextracted word: _%s_", a);
+            // printf("\n== %s\n== %s\n== %s", keyboard[0], keyboard[1], keyboard[2]);
 
             for (int i = 0; keyboard[i] != NULL; i++)
             {
                 int status = is_contained(keyboard[i], a);
-                printf("\nstatus is: %d", status);
+                // printf("\nstatus is: %d", status);
                 if (status)
                 {
-                    printf("\tyes this is contains");
+                    printf("\nyes this is contains\n");
                 }
             }
             start = end + 1;
@@ -161,4 +155,49 @@ extracted word: _youtoyr_
 status is: 0 //?why this is not coming??
 status is: 0
 status is: 0⏎
+*/
+
+// bug fixed..
+/*
+extracted word: _this_
+t=t
+i=i
+s=s
+h=h
+extracted word: _is_
+i=i
+s=s
+extracted word: _a_
+a=a
+yes this is contains
+
+extracted word: _demo_
+e=e
+o=o
+d=d
+m=m
+extracted word: _akadsdl_
+a=a
+a=a
+s=s
+d=d
+d=d
+k=k
+l=l
+yes this is contains
+
+extracted word: _ytoure_
+e=e
+r=r
+t=t
+y=y
+u=u
+o=o
+yes this is contains
+
+extracted word: _thid_
+t=t
+i=i
+d=d
+h=h⏎
 */

@@ -1,38 +1,43 @@
 #include <stdio.h>
+#include <string.h>
 int is_contained(char *str, char *word)
 {
     if (*word == '\0')
         return 404;
 
+    char *p = word;
     int len = 0;
-    while (*word)
+    while (*p)
     {
         len++;
-        word++;
+        p++;
     }
-    printf("\nlen= %d", len);
+    printf("\nlen= %d, strlen(word)=%d", len, strlen(word));
 
     int count = 0;
-    for (; *str; str++)
+    while (*str != '\0')
     {
-        for (; *word; word++)
+        char *pp = word; // Reset the pointer to the beginning of pp
+        while (*pp != '\0')
         {
-            if (*str == *word)
+            if (*str == *pp)
             {
-                printf("%c=%c", *word, *str);
-                printf("\tcount= %d", count);
+                printf("\n%c=%c", *pp, *str);
                 count++;
             }
+            pp++;
         }
+        printf("\tcount= %d", count);
+        str++;
     }
-    printf("\tcount= %d", count);
+    printf("\tcount==len? %d==%d", count, len);
     return count == len;
 }
 
 int main()
 {
-    char str[] = "this is a demo string";
-    int status = is_contained(str, "this");
-    printf("%d", status);
+    char str[] = "akhsdj is a demo string";
+    int status = is_contained("asdfghjkl", "akhsdj");
+    printf("\nstatus code: %d", status);
     return 0;
 }
