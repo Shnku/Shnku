@@ -34,13 +34,18 @@ int sqr_each_digit(int no)
 
 int main()
 {
-    printf("%d", no_of_digit(4264267));
     printf("\n%d", sqr_each_digit(4351));
+    // 16*10^4 + 9*10^3 + 25*10^1 +1
+    printf("\n%d", sqr_each_digit(1001));
+
     return 0;
 }
 
 /*
-done 
-7
-169251⏎  
+done
+$gcc Square_Every_Digit.c -o Square_Every_Digit
+$./Square_Every_Digit
+
+169251
+11⏎ //?how to solve this..
 */
