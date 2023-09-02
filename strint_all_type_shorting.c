@@ -16,9 +16,7 @@ int lexicographic_sort(const char *a, const char *b)
 {
     for (int i = 0; i < strlen(a); i++)
     {
-        
     }
-    
 }
 
 int lexicographic_sort_reverse(const char *a, const char *b)
@@ -33,7 +31,7 @@ int sort_by_length(const char *a, const char *b)
 {
 }
 
-void string_sort(char **arr, const int len, int (*cmp_func)(const char *a, const char *b))
+void string_sort(char **arr, const int len, int (*func_pointer)(const char *a, const char *b))
 {
 }
 
