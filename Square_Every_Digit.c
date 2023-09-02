@@ -24,6 +24,11 @@ int sqr_each_digit(int no)
     while (no)
     {
         int rem = no % 10;
+        if (rem == 0)
+        {
+            rem = 1;
+            // not work ..
+        }
         int p = (int)power(rem, 2);
         int n = no_of_digit(sum);
         sum = p * power(10, n) + sum;
@@ -36,7 +41,8 @@ int main()
 {
     printf("\n%d", sqr_each_digit(4351));
     // 16*10^4 + 9*10^3 + 25*10^1 +1
-    printf("\n%d", sqr_each_digit(1001));
+    printf("\n%d", sqr_each_digit(1001));   // 1111
+    printf("\n%d", sqr_each_digit(500507)); // 25 1 1 25 1 49
 
     return 0;
 }
