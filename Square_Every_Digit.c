@@ -28,15 +28,31 @@ int each_digt_sqr(int no)
         printf("\nqus = %d ", qus);
         printf("\tpower = %d ", p);
         printf("\tdig of power = %d ", dig_of_pow);
-        printf("\nsum=%d\tno=%d\n", sum, no % tent);
+        printf("\nsum = %d\tno = %d\n", sum, no % tent);
         digit_count--;
     }
     return sum;
 }
 
+int each_digit_square2(int no) // it actually reversed the working
+{
+    int sum = 0;
+    int digit_count = no_of_digit(no);
+    while (no)
+    {
+        int rem = no % 10;
+        if (rem == 0)
+            sum *= 10;
+        else
+            sum = sum * power(10, no_of_digit(power(rem, 2))) + power(rem, 2);
+        no /= 10;
+    }
+    return sum; // 205309 -> 8109504
+}
+
 int main()
 {
-    printf("\n%d", each_digt_sqr(205309));
+    printf("\n%d", each_digit_square2(205309));
     printf("\nen a no to find : ");
     int no;
     scanf("%d", &no);
