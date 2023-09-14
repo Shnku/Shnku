@@ -1,22 +1,57 @@
 #include <stdio.h>
 
-int power(int no, int r)
+int no_of_digit(int n);
+int power(int no, int r);
+int sqr_each_digit(int no);
+int square_each_digit2(int no);
+
+int each_digt_sqr(int no)
 {
-    if (r == 0)
-        return 1;
-    return no * power(no, r - 1);
+    int sum = 0;
+    int digit_count = no_of_digit(no);
+    while (digit_count) // same..while (no)
+    //! imp: while(no) not works if last digit 0..
+    {
+        int tent = power(10, digit_count - 1);
+        int qus = no / tent;
+        int dig_of_pow, p;
+        if (qus == 0)
+            sum = sum * 10;
+        else
+        {
+            p = power(qus, 2);
+            dig_of_pow = no_of_digit(p);
+            sum = sum * power(10, dig_of_pow) + p;
+            no = no % tent;
+        }
+        printf("\ntens = %d ", tent);
+        printf("\nqus = %d ", qus);
+        printf("\tpower = %d ", p);
+        printf("\tdig of power = %d ", dig_of_pow);
+        printf("\nsum=%d\tno=%d\n", sum, no % tent);
+        digit_count--;
+    }
+    return sum;
 }
 
-int no_of_digit(int n)
+int main()
 {
-    int count = 0;
-    while (n)
-    {
-        n = n / 10;
-        count++;
-    }
-    return count;
+    printf("\n%d", each_digt_sqr(205309));
+    printf("\nen a no to find : ");
+    int no;
+    scanf("%d", &no);
+    printf("\n%d", each_digt_sqr(no));
+
+    // printf("\n%d", square_each_digit2(205309)); // 425981
+    // printf("\n%d", sqr_each_digit(4351));       // 16*10^4 + 9*10^3 + 25*10^1 +1
+    // printf("\n%d", sqr_each_digit(1001));       // 1111
+    // printf("\n%d", sqr_each_digit(500507));     // 25 1 1 25 1 49
+    // printf("\n%d", square_each_digit2(500507)); // 25 1 1 25 1 49
+
+    return 0;
 }
+
+//________other functions_______________________//
 
 int sqr_each_digit(int no)
 {
@@ -36,6 +71,14 @@ int sqr_each_digit(int no)
     }
     return sum;
 }
+/*
+done
+$gcc Square_Every_Digit.c -o Square_Every_Digit
+$./Square_Every_Digit
+
+169251
+11⏎ //?how to solve this..
+*/
 
 int square_each_digit2(int no)
 {
@@ -59,27 +102,6 @@ int square_each_digit2(int no)
     return sum;
 }
 
-int main()
-{
-    printf("\n%d", square_each_digit2(205309)); // 4 0 25 9 0 81
-    // printf("\n%d", sqr_each_digit(4351));
-    // 16*10^4 + 9*10^3 + 25*10^1 +1
-    // printf("\n%d", sqr_each_digit(1001));       // 1111
-    // printf("\n%d", sqr_each_digit(500507));     // 25 1 1 25 1 49
-    // printf("\n%d", square_each_digit2(500507)); // 25 1 1 25 1 49
-
-    return 0;
-}
-
-/*
-done
-$gcc Square_Every_Digit.c -o Square_Every_Digit
-$./Square_Every_Digit
-
-169251
-11⏎ //?how to solve this..
-*/
-
 /*
 digit no = 6    tens = 100000
 qus = 2         power = 4       dig of power = 1
@@ -99,3 +121,22 @@ sum=425981  no=0
 
 425981 //! it should be 40259081.. not works..
 */
+
+int no_of_digit(int n)
+
+{
+    int count = 0;
+    while (n)
+    {
+        n = n / 10;
+        count++;
+    }
+    return count;
+}
+
+int power(int no, int r)
+{
+    if (r == 0)
+        return 1;
+    return no * power(no, r - 1);
+}
