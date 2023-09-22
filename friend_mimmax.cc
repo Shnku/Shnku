@@ -25,14 +25,17 @@ void A::setx(int x)
 {
     this->x = x;
 }
+
 void B::sety(int y)
 {
     this->y = y;
 }
+
 int A::getx()
 {
     return x;
 }
+
 int B::gety()
 {
     return y;
