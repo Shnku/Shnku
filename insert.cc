@@ -1,37 +1,48 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 class insertion
 {
-  public:
+public:
   int a[10],
-  n,
-  i,
-  temp;
-  void input(void) {
-    cout<<"enter the no of array elements 'n': ";
-    cin>>n;
-    cout<<"enter the array elements: ";
-    for(i = 0; i < n; i++) {
-      cin>>a[i];
+      n,
+      i,
+      temp;
+  void input(void)
+  {
+    cout << "enter the no of array elements 'n': ";
+    cin >> n;
+    cout << "enter the array elements: ";
+    for (i = 0; i < n; i++)
+    {
+      cin >> a[i];
     }
   }
-  void sort(void) {
-    for(i = 1; i < n; i++) {
-      if(a[i] > a[i+1]) {
-        temp = a[i];
-        a[i] = a[i+1];
-        a[i+1] = temp;
+  void sort(void)
+  {
+    for (i = 1; i < n; i++)
+    {
+      for (int j = 0; j < n - i - 1; j++)
+      {
+        if (a[i] > a[i + 1])
+        {
+          temp = a[i];
+          a[i] = a[i + 1];
+          a[i + 1] = temp;
+        }
       }
     }
   }
-  void display(void) {
-    cout<<"the sorted array is: ";
-    for(i = 0; i < n; i++) {
-      cout<<a[i];
+  void display(void)
+  {
+    cout << "the sorted array is: ";
+    for (i = 0; i < n; i++)
+    {
+      cout << " " << a[i];
     }
   }
 };
-int main() {
+int main()
+{
   insertion a;
   a.input();
   a.sort();
