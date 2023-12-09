@@ -81,8 +81,7 @@ int main()
     cout << "2) Delete element from queue" << endl;
     cout << "3) Display all the elements of queue" << endl;
     cout << "4) Exit" << endl;
-    // do{
-    while (true)
+    do
     {
         cout << "\nen yer choice: ";
         cin >> ch;
@@ -99,13 +98,11 @@ int main()
             break;
         case 4:
             cout << "Exit";
-            exit(1);
             break;
         default:
             cout << "invalid choice" << endl;
             break;
         }
-    }
-    // } while (ch != 4);
+    } while (ch != 4);
     return 0;
 }
