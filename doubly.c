@@ -113,7 +113,7 @@ void create_node(LIst** head) {
     printf("Enter the no of list items: ");
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
-        temp = (LIst*)malloc(sizeof(LIst));
+        temp = (LIst*)calloc(1, sizeof(LIst));
         printf("enter the list data: ");
         scanf("%d", &d);
         temp->data = d;
@@ -125,6 +125,7 @@ void create_node(LIst** head) {
             while (ptr->p_next != NULL)
                 ptr = ptr->p_next;
             ptr->p_next = temp;
+            temp->p_prev = ptr;
         }
     }
 }
@@ -134,7 +135,7 @@ void create_node(LIst** head) {
 void add_beg(LIst** head, int d) // aad begenning function..
 {
     LIst* temp;
-    temp = (LIst*)malloc(sizeof(LIst));
+    temp = (LIst*)calloc(1, sizeof(LIst));
     temp->data = d;
     temp->p_next = *head;
     temp->p_prev = (*head)->p_prev;
@@ -145,7 +146,7 @@ void add_end(LIst** head, int d) // add end function...
 {
     LIst* temp;
     LIst* ptr = *head;
-    temp = (LIst*)malloc(sizeof(LIst));
+    temp = (LIst*)calloc(1, sizeof(LIst));
     temp->data = d;
     temp->p_next = NULL;
     if (*head == NULL) {
@@ -170,7 +171,7 @@ void add_after(LIst** head, int after, int d) // add after any node..
     ptr = *head;
     while (ptr != NULL) {
         if (ptr->data == after) {
-            temp = (LIst*)malloc(sizeof(LIst));
+            temp = (LIst*)calloc(1, sizeof(LIst));
             temp->data = d;
             temp->p_prev = ptr;
             temp->p_next = ptr->p_next; // if null then nul->next==null
@@ -190,7 +191,7 @@ void add_before(LIst** head, int before, int d) // add before any node..
         return;
     }
     if ((*head)->data == before) {
-        temp = (LIst*)malloc(sizeof(LIst));
+        temp = (LIst*)calloc(1, sizeof(LIst));
         temp->data = d;
         temp->p_prev = NULL;
         temp->p_next = *head;
@@ -201,12 +202,13 @@ void add_before(LIst** head, int before, int d) // add before any node..
     ptr = *head;
     while (ptr != NULL) {
         if (ptr->data == before) {
-            temp = (LIst*)malloc(sizeof(LIst));
+            temp = (LIst*)calloc(1, sizeof(LIst));
             temp->data = d;
             temp->p_prev = ptr->p_prev;
-            temp->p_next = ptr;
-            ptr->p_prev->p_next = temp;
             ptr->p_prev = temp;
+            temp->p_prev->p_next = temp;
+            temp->p_next = ptr;
+            // ptr->p_prev->p_next = temp; // problem here..
             return;
         }
         ptr = ptr->p_next;
