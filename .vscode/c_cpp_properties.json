@@ -9,7 +9,20 @@
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "linux-clang-x64",
+            "clang-format.language.c.enable": true,
+            "clang-format.language.cpp.enable": true,
+            "clang-format.executable": "/usr/bin/clang-format-12",
+            "[c]": {
+                "editor.defaultFormatter": "xaver.clang-format",
+                "editor.wordBasedSuggestions": false,
+                "editor.suggest.insertMode": "replace",
+                "editor.semanticHighlighting.enabled": true
+            },
+            "[cpp]": {
+                "editor.defaultFormatter": "xaver.clang-format"
+            },
+            "clang-format.langstyle": "{ BasedOnStyle: Google, IndentWidth: 4}"
         }
     ],
     "version": 4
