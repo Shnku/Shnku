@@ -119,12 +119,12 @@ void create_node(LIst** head) {
         temp->data = d;
         temp->p_next = NULL;
         if (*head == NULL)
-            *head = temp;
+            *head = temp; // replace with add_beg
         else {
             ptr = *head;
             while (ptr->p_next != NULL)
                 ptr = ptr->p_next;
-            ptr->p_next = temp;
+            ptr->p_next = temp; // replace with add_end
             temp->p_prev = ptr;
         }
     }
@@ -138,7 +138,10 @@ void add_beg(LIst** head, int d) // aad begenning function..
     temp = (LIst*)calloc(1, sizeof(LIst));
     temp->data = d;
     temp->p_next = *head;
-    temp->p_prev = (*head)->p_prev;
+    if (*head != NULL)
+        temp->p_prev = (*head)->p_prev;
+    else
+        temp->p_prev = NULL;
     *head = temp;
 }
 
@@ -226,7 +229,8 @@ void delete_beg(LIst** head) // delete begenning of the node..
         return;
     }
     ptr = *head;
-    (*head)->p_next->p_prev = NULL;
+    if ((*head)->p_next != NULL)
+        (*head)->p_next->p_prev = NULL;
     *head = (*head)->p_next;
     free(ptr);
 }
