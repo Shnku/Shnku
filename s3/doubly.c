@@ -118,13 +118,13 @@ void create_node(LIst** head) {
         scanf("%d", &d);
         temp->data = d;
         temp->p_next = NULL;
-        if (*head == NULL) //replace with add_beg
+        if (*head == NULL)
             *head = temp;
         else {
             ptr = *head;
             while (ptr->p_next != NULL)
                 ptr = ptr->p_next;
-            ptr->p_next = temp; //replace with add_end
+            ptr->p_next = temp;
             temp->p_prev = ptr;
         }
     }
@@ -314,5 +314,5 @@ void display(LIst* head) // displaying the list..
         printf("%d <=> ", head->data);
         head = head->p_next;
     }
-    printf("\b\b\b ");
+    printf("\b\b\b\b  ");
 }
