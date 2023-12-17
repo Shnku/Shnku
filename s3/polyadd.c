@@ -8,7 +8,7 @@ typedef struct node {
 
 TERM *create_polynomial(TERM *node);
 TERM *add_term(TERM *node, int coff, int pow);
-void poly_add(TERM *poly1, TERM *poly2, TERM **poly3);
+TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3);
 void display(TERM *poly);
 
 int main() {
@@ -17,38 +17,39 @@ int main() {
     exp1 = exp2 = exp3 = NULL;
 
     exp1 = create_polynomial(exp1);
-    display(exp1);
     exp2 = create_polynomial(exp2);
+    display(exp1);
     display(exp2);
-    poly_add(exp1, exp2, &exp3);
+    exp3 = poly_add(exp1, exp2, exp3);
     display(exp3);
     return 0;
 }
 
 TERM *create_polynomial(TERM *node) {
-    int power, cof, quit = 0;
-    while (quit != 1) {
-        printf("enter the coeff: ");
+    int power, cof, term;
+    printf("\n___en no of terms___");
+    scanf("%d", &term);
+    for (int i = 0; i < term; i++) {
+        printf("Enter the coeff: ");
         scanf("%d", &cof);
         printf("Enter the power: ");
         scanf("%d", &power);
         node = add_term(node, cof, power);
-        printf("done?? 1 for quit; ");
-        scanf("%d", &quit);
     }
     return node;
 }
 
 TERM *add_term(TERM *start, int coff, int pow) {
-    TERM *temp, *ptr = start;
+    TERM *temp, *ptr;
     if (start == NULL) {
         temp = (TERM *)calloc(1, sizeof(TERM));
         temp->coff = coff;
         temp->pow = pow;
-        temp->link = start;
+        temp->link = NULL;
         start = temp;
         return start;
     }
+    ptr = start;
     while (ptr->link != NULL) {
         ptr = ptr->link;
     }
@@ -60,16 +61,30 @@ TERM *add_term(TERM *start, int coff, int pow) {
     return start;
 }
 
-void poly_add(TERM *poly1, TERM *poly2, TERM **poly3) {
+TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3) {
     while (poly1 != NULL && poly2 != NULL) {
         if (poly1->pow > poly2->pow) {
-            *poly3 = add_term(*poly3, poly1->coff, poly1->pow);
+            poly3 = add_term(poly3, poly1->coff, poly1->pow);
+            poly1 = poly1->link;
         } else if (poly1->pow < poly2->pow) {
-            *poly3 = add_term(*poly3, poly2->coff, poly2->pow);
+            poly3 = add_term(poly3, poly2->coff, poly2->pow);
+            poly2 = poly2->link;
         } else {
-            *poly3 = add_term(*poly3, poly1->coff + poly2->coff, poly1->pow);
+            poly3 = add_term(poly3, poly1->coff + poly2->coff, poly1->pow);
+            poly1 = poly1->link;
+            poly2 = poly2->link;
         }
     }
+    while (poly1 != NULL) {
+        poly3 = add_term(poly3, poly1->coff, poly1->pow);
+        poly1 = poly1->link;
+    }
+    while (poly2 != NULL) {
+        poly3 = add_term(poly3, poly2->coff, poly2->pow);
+        poly2 = poly2->link;
+    }
+    // display(poly3);
+    return poly3;
 }
 
 void display(TERM *head) {
@@ -85,3 +100,39 @@ void display(TERM *head) {
     }
     printf("\b\b\n");
 }
+
+//? out..
+/*
+____Displaying the polynomial_____
+ 1^3 + 5^2
+
+____Displaying the polynomial_____
+ 1^5 + 2^3 + 4^1
+
+____Displaying the polynomial_____
+ 1^5 + 3^3 + 5^2 + 4^1
+*/
+
+//? out 2..
+/*
+____Displaying the polynomial_____
+ 1^3 + 5^0
+
+____Displaying the polynomial_____
+ 1^2 + 6^1
+
+____Displaying the polynomial_____
+ 1^3 + 1^2 + 6^1 + 5^0
+*/
+
+//! there are some issue with -
+/*
+____Displaying the polynomial_____
+ -8^2  4^0
+
+____Displaying the polynomial_____
+ 5^2 + -9^1  2^0
+
+____Displaying the polynomial_____
+ -3^2  -9^1  6^0
+*/
