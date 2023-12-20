@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct node {
+typedef struct node
+{
     int coff;
     int pow;
     struct node *link;
@@ -8,10 +9,13 @@ typedef struct node {
 
 TERM *create_polynomial(TERM *node);
 TERM *add_term(TERM *node, int coff, int pow);
+TERM *search(TERM *node, int data);
 TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3);
+TERM *poly_multi(TERM *poly1, TERM *poly2, TERM *poly3);
 void display(TERM *poly);
 
-int main() {
+int main()
+{
     printf("hallo world\n");
     TERM *exp1, *exp2, *exp3;
     exp1 = exp2 = exp3 = NULL;
@@ -25,11 +29,13 @@ int main() {
     return 0;
 }
 
-TERM *create_polynomial(TERM *node) {
+TERM *create_polynomial(TERM *node)
+{
     int power, cof, term;
     printf("\n___en no of terms___");
     scanf("%d", &term);
-    for (int i = 0; i < term; i++) {
+    for (int i = 0; i < term; i++)
+    {
         printf("Enter the coeff: ");
         scanf("%d", &cof);
         printf("Enter the power: ");
@@ -39,47 +45,55 @@ TERM *create_polynomial(TERM *node) {
     return node;
 }
 
-TERM *add_term(TERM *start, int coff, int pow) {
+TERM *add_term(TERM *start, int coff, int pow)
+{
     TERM *temp, *ptr;
-    if (start == NULL) {
-        temp = (TERM *)calloc(1, sizeof(TERM));
-        temp->coff = coff;
-        temp->pow = pow;
-        temp->link = NULL;
-        start = temp;
-        return start;
-    }
-    ptr = start;
-    while (ptr->link != NULL) {
-        ptr = ptr->link;
-    }
     temp = (TERM *)calloc(1, sizeof(TERM));
     temp->coff = coff;
     temp->pow = pow;
     temp->link = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+        return start;
+    }
+    ptr = start;
+    while (ptr->link != NULL)
+    {
+        ptr = ptr->link;
+    }
     ptr->link = temp;
     return start;
 }
 
-TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3) {
-    while (poly1 != NULL && poly2 != NULL) {
-        if (poly1->pow > poly2->pow) {
+TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3)
+{
+    while (poly1 != NULL && poly2 != NULL)
+    {
+        if (poly1->pow > poly2->pow)
+        {
             poly3 = add_term(poly3, poly1->coff, poly1->pow);
             poly1 = poly1->link;
-        } else if (poly1->pow < poly2->pow) {
+        }
+        else if (poly1->pow < poly2->pow)
+        {
             poly3 = add_term(poly3, poly2->coff, poly2->pow);
             poly2 = poly2->link;
-        } else {
+        }
+        else
+        {
             poly3 = add_term(poly3, poly1->coff + poly2->coff, poly1->pow);
             poly1 = poly1->link;
             poly2 = poly2->link;
         }
     }
-    while (poly1 != NULL) {
+    while (poly1 != NULL)
+    {
         poly3 = add_term(poly3, poly1->coff, poly1->pow);
         poly1 = poly1->link;
     }
-    while (poly2 != NULL) {
+    while (poly2 != NULL)
+    {
         poly3 = add_term(poly3, poly2->coff, poly2->pow);
         poly2 = poly2->link;
     }
@@ -87,15 +101,17 @@ TERM *poly_add(TERM *poly1, TERM *poly2, TERM *poly3) {
     return poly3;
 }
 
-void display(TERM *head) {
+void display(TERM *head)
+{
     printf("\n____Displaying the polynomial_____\n");
-    if (head == NULL) {
+    if (head == NULL)
+    {
         printf("\n0");
         return;
     }
-    while (head != NULL) {
-        printf(" %d^%d %s", head->coff, head->pow,
-               (head->coff < 0 || head->link == NULL ? "" : "+"));
+    while (head != NULL)
+    {
+        printf(" %d^%d %s", head->coff, head->pow, (head->coff < 0 || head->link == NULL ? "" : "+"));
         head = head->link;
     }
     printf("\b\b\n");
@@ -136,3 +152,36 @@ ____Displaying the polynomial_____
 ____Displaying the polynomial_____
  -3^2  -9^1  6^0
 */
+
+TERM *poly_multi(TERM *poly1, TERM *poly2, TERM *poly3)
+{
+    TERM *ptr, *temp, *location;
+    int cof, pow;
+    while (poly1 != NULL)
+    {
+        ptr = poly2;
+        while (ptr != NULL)
+        {
+            cof = poly1->coff * poly2->coff;
+            pow = poly1->pow + poly2->pow;
+            ptr = temp;
+            location = search(temp, pow);
+            if (location != NULL)
+                location->coff += cof;
+            else
+                poly3 = add_term(poly3, cof, pow);
+            temp = temp->link;
+        }
+        ptr = ptr->link;
+    }
+}
+
+TERM *search(TERM *node, int data)
+{
+    while (node != NULL)
+    {
+        if (node->pow == data)
+            return node;
+    }
+    return NULL;
+}
