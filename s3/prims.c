@@ -23,7 +23,7 @@ int main()
 
 void prims(int nth, int cost[MAX][MAX])
 {
-    int visited[MAX], x, y, min, mincost = 0, count = 1;
+    int visited[MAX], min, mincost = 0, count = 1;
     for (int i = 0; i < nth; i++)
     {
         visited[i] = 0;
@@ -32,26 +32,47 @@ void prims(int nth, int cost[MAX][MAX])
     while (nth > count)
     {
         min = 999;
+        int x = 0, y = 0;
         for (int i = 0; i < nth; i++)
         {
-            for (int j = 0; j < i; j++)
+            for (int j = 0; j < nth; j++)
             {
-                if (cost[i][j] < min)
+                if (cost[i][j] && cost[i][j] < min)
                 {
-                    if (visited[i] != 0)
+                    if (visited[j] != 0)
                     {
                         min = cost[i][j];
+                        mincost += min;
                         x = i, y = j;
                     }
-                    if (visited[x] == 0 || visited[y] == 0)
-                    {
-                        printf("\nEdge %d: (%d,%d) cost=%d", count++, x, y, min);
-                        mincost += min;
-                        visited[y] = 1;
-                    }
-                    cost[x][y] = cost[y][x] = 999;
                 }
             }
         }
+        printf("%d - %d : %d\n", x, y, cost[x][y]);
+        visited[y] = 1;
+        count++;
     }
+    printf("min cost= %d", mincost);
 }
+
+// nope it did wrong
+/*
+
+np of row and col= 7
+
+Fill the matrix...
+0 2 0 7 3 0 0
+2 0 2 0 6 4 0
+0 2 0 5 4 2 1
+7 0 5 0 1 0 6
+3 6 4 1 0 0 0
+0 4 2 0 0 0 0
+0 0 1 6 0 0 0
+0 - 1 : 2
+0 - 1 : 2
+0 - 1 : 2
+0 - 1 : 2
+0 - 1 : 2
+0 - 1 : 2
+min cost= 12⏎
+*/
