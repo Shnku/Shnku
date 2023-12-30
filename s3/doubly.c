@@ -3,26 +3,26 @@
 
 typedef struct link_list {
     int data;
-    struct link_list* p_prev;
-    struct link_list* p_next;
+    struct link_list *p_prev;
+    struct link_list *p_next;
 } LIst;
 
-void display(LIst* head);
-void create_node(LIst** head);
+void display(LIst *head);
+void create_node(LIst **head);
 
-void add_beg(LIst** head, int data);
-void add_end(LIst** head, int data);
-void add_after(LIst** head, int pos, int data);
-void add_before(LIst** head, int pos, int data);
+void add_beg(LIst **head, int data);
+void add_end(LIst **head, int data);
+void add_after(LIst **head, int pos, int data);
+void add_before(LIst **head, int pos, int data);
 
-void delete_beg(LIst** head);
-void delete_end(LIst** head);
-void delete_after(LIst** head, int pos);
-void delete_before(LIst** head, int pos);
+void delete_beg(LIst **head);
+void delete_end(LIst **head);
+void delete_after(LIst **head, int pos);
+void delete_before(LIst **head, int pos);
 
 int main() {
     int c, d, pos;
-    LIst* head = NULL;
+    LIst *head = NULL;
     while (1) {
         printf("\n\t\\link list menu options...\\");
         printf("\n\t(_1_) = for creating the list");
@@ -92,7 +92,7 @@ int main() {
             break;
         case 10:
             printf("\n_______delete_before of list_______\n");
-            printf("\nenter after what: ");
+            printf("\nenter before what: ");
             scanf("%d", &pos);
             delete_before(&head, pos);
             break;
@@ -106,14 +106,14 @@ int main() {
 /*__________________end of main_____________________*/
 /*______________creation function_____________________*/
 
-void create_node(LIst** head) {
+void create_node(LIst **head) {
     int n, i, d;
-    LIst* temp;
-    LIst* ptr;
+    LIst *temp;
+    LIst *ptr;
     printf("Enter the no of list items: ");
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
-        temp = (LIst*)calloc(1, sizeof(LIst));
+        temp = (LIst *)calloc(1, sizeof(LIst));
         printf("enter the list data: ");
         scanf("%d", &d);
         temp->data = d;
@@ -132,21 +132,21 @@ void create_node(LIst** head) {
 
 /*________________________addition function__________________________*/
 
-void add_beg(LIst** head, int d) // aad begenning function..
+void add_beg(LIst **head, int d) // aad begenning function..
 {
-    LIst* temp;
-    temp = (LIst*)calloc(1, sizeof(LIst));
+    LIst *temp;
+    temp = (LIst *)calloc(1, sizeof(LIst));
     temp->data = d;
     temp->p_next = *head;
     temp->p_prev = (*head)->p_prev;
     *head = temp;
 }
 
-void add_end(LIst** head, int d) // add end function...
+void add_end(LIst **head, int d) // add end function...
 {
-    LIst* temp;
-    LIst* ptr = *head;
-    temp = (LIst*)calloc(1, sizeof(LIst));
+    LIst *temp;
+    LIst *ptr = *head;
+    temp = (LIst *)calloc(1, sizeof(LIst));
     temp->data = d;
     temp->p_next = NULL;
     if (*head == NULL) {
@@ -161,7 +161,7 @@ void add_end(LIst** head, int d) // add end function...
     temp->p_prev = ptr;
 }
 
-void add_after(LIst** head, int after, int d) // add after any node..
+void add_after(LIst **head, int after, int d) // add after any node..
 {
     LIst *ptr, *temp;
     if (!(*head)) {
@@ -171,7 +171,7 @@ void add_after(LIst** head, int after, int d) // add after any node..
     ptr = *head;
     while (ptr != NULL) {
         if (ptr->data == after) {
-            temp = (LIst*)calloc(1, sizeof(LIst));
+            temp = (LIst *)calloc(1, sizeof(LIst));
             temp->data = d;
             temp->p_prev = ptr;
             temp->p_next = ptr->p_next; // if null then nul->next==null
@@ -183,7 +183,7 @@ void add_after(LIst** head, int after, int d) // add after any node..
     printf("\nlement not found");
 }
 
-void add_before(LIst** head, int before, int d) // add before any node..
+void add_before(LIst **head, int before, int d) // add before any node..
 {
     LIst *ptr, *temp;
     if (*head == NULL) {
@@ -191,7 +191,7 @@ void add_before(LIst** head, int before, int d) // add before any node..
         return;
     }
     if ((*head)->data == before) {
-        temp = (LIst*)calloc(1, sizeof(LIst));
+        temp = (LIst *)calloc(1, sizeof(LIst));
         temp->data = d;
         temp->p_prev = NULL;
         temp->p_next = *head;
@@ -202,7 +202,7 @@ void add_before(LIst** head, int before, int d) // add before any node..
     ptr = *head;
     while (ptr != NULL) {
         if (ptr->data == before) {
-            temp = (LIst*)calloc(1, sizeof(LIst));
+            temp = (LIst *)calloc(1, sizeof(LIst));
             temp->data = d;
             temp->p_prev = ptr->p_prev;
             ptr->p_prev = temp;
@@ -218,9 +218,9 @@ void add_before(LIst** head, int before, int d) // add before any node..
 
 /*__________________________delettiong______________________________*/
 
-void delete_beg(LIst** head) // delete begenning of the node..
+void delete_beg(LIst **head) // delete begenning of the node..
 {
-    LIst* ptr;
+    LIst *ptr;
     if (!(*head)) {
         printf("list is empty....");
         return;
@@ -231,7 +231,7 @@ void delete_beg(LIst** head) // delete begenning of the node..
     free(ptr);
 }
 
-void delete_end(LIst** head) // delete end of the node..
+void delete_end(LIst **head) // delete end of the node..
 {
     LIst *ptr, *temp;
     if (!(*head)) {
@@ -253,7 +253,7 @@ void delete_end(LIst** head) // delete end of the node..
     free(temp);
 }
 
-void delete_after(LIst** head, int after) // delete after given node..
+void delete_after(LIst **head, int after) // delete after given node..
 {
     LIst *ptr, *temp;
     if (!(*head)) {
@@ -276,7 +276,7 @@ void delete_after(LIst** head, int after) // delete after given node..
     }
 }
 
-void delete_before(LIst** head, int before) // delete before specified node....
+void delete_before(LIst **head, int before) // delete before specified node....
 {
     LIst *ptr, *prev, *temp;
     if (!(*head)) {
@@ -297,16 +297,18 @@ void delete_before(LIst** head, int before) // delete before specified node....
     else if (ptr->data == (*head)->data) {
         temp = *head;
         *head = (*head)->p_next;
+        (*head)->p_prev = NULL;
         free(temp);
     } else {
         prev->p_next = ptr->p_next;
+        ptr->p_next->p_prev = prev;
         free(ptr);
     }
 }
 
 /*_________________displayind code___________________________*/
 
-void display(LIst* head) // displaying the list..
+void display(LIst *head) // displaying the list..
 {
     if (head == NULL)
         printf("list is empty...");
