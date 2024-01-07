@@ -59,8 +59,8 @@ void kruskal(int n, int arr[MAX][MAX])
 
 int find(int i, int *parent)
 {
-    while (parent[i])
-        i = parent[i];
+    while (parent[i])  // seg fault in this ..
+        i = parent[i]; // whart happns..
     return i;
 }
 
@@ -68,7 +68,7 @@ int uni(int i, int j, int *parent)
 {
     if (i != j)
     {
-        parent[j] = i;
+        parent[j] = i; // this is suspect..
         return 1;
     }
     return 0;
