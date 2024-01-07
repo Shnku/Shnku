@@ -25,14 +25,14 @@ int main()
 
 void kruskal(int n, int arr[MAX][MAX])
 {
-    int ne = 0, min, parent[MAX], mincost = 0;
+    int ne = 1, min, parent[MAX], mincost = 0;
     int a, u;
     int b, v;
     while (ne < n)
     {
-        for (int i = 1, min = 999; i <= n; i++)
+        for (int i = 0, min = 999; i < n; i++)
         {
-            for (int j = 1; j <= n; j++)
+            for (int j = 0; j < n; j++)
             {
                 if (arr[i][j] < min)
                 {
@@ -59,7 +59,7 @@ void kruskal(int n, int arr[MAX][MAX])
 
 int find(int i, int *parent)
 {
-    while (parent[i])     //error
+    while (parent[i])  // error
         i = parent[i]; // whart happns..
     return i;
 }
@@ -68,7 +68,7 @@ int uni(int i, int j, int *parent)
 {
     if (i != j)
     {
-        parent[i] = j; // still seg fault if change i-j
+        parent[j] = i;
         return 1;
     }
     return 0;
