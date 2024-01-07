@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int i, j, k, a, b, u, v, n, ne = 1;
+int i, j, k, a, b, u, v, n, ne = 0;
 int min, mincost = 0, cost[9][9], parent[9];
 
 int find(int);
@@ -16,9 +16,9 @@ void main()
     scanf("%d", &n);
 
     printf("\nEnter the cost adjacency matrix:\n");
-    for (i = 1; i <= n; i++)
+    for (i = 0; i < n; i++)
     {
-        for (j = 1; j <= n; j++)
+        for (j = 0; j <n; j++)
         {
             scanf("%d", &cost[i][j]);
             if (cost[i][j] == 0)
@@ -27,11 +27,11 @@ void main()
     }
 
     printf("The edges of Minimum Cost Spanning Tree are\n");
-    while (ne < n)
+    while (ne < n-1)
     {
-        for (i = 1, min = 999; i <= n; i++)
+        for (i = 0, min = 999; i < n; i++)
         {
-            for (j = 1; j <= n; j++)
+            for (j = 1; j < n; j++)
             {
                 if (cost[i][j] < min)
                 {
@@ -100,3 +100,28 @@ The edges of Minimum Cost Spanning Tree are
 
 Minimum cost = 11
 */
+
+/*
+Kruskal's algorithm in C
+========================
+Enter the no. of vertices:
+7
+
+Enter the cost adjacency matrix:
+0 2 0 7 3 0 0
+2 0 2 0 6 4 0
+0 2 0 5 4 2 1
+7 0 5 0 1 0 6
+3 6 4 1 0 0 0
+0 4 2 0 0 0 0
+0 0 1 6 0 0 0
+The edges of Minimum Cost Spanning Tree are
+0 edge (2,6) =1
+1 edge (3,4) =1
+2 edge (0,1) =2
+3 edge (1,2) =2
+4 edge (2,5) =2
+5 edge (0,4) =3
+6 edge (2,4) =4
+
+Minimum cost = 15*/
