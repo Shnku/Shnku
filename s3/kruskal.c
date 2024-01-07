@@ -59,7 +59,7 @@ void kruskal(int n, int arr[MAX][MAX])
 
 int find(int i, int *parent)
 {
-    if (parent[i])     // change this to if insted while..
+    while (parent[i])     //error
         i = parent[i]; // whart happns..
     return i;
 }
