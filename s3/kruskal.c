@@ -59,7 +59,7 @@ void kruskal(int n, int arr[MAX][MAX])
 
 int find(int i, int *parent)
 {
-    while (parent[i])  // seg fault in this ..
+    if (parent[i])     // change this to if insted while..
         i = parent[i]; // whart happns..
     return i;
 }
@@ -68,8 +68,27 @@ int uni(int i, int j, int *parent)
 {
     if (i != j)
     {
-        parent[j] = i; // this is suspect..
+        parent[j] = i; // this is suspect.. //now seg fault here
         return 1;
     }
     return 0;
 }
+
+/*
+some new issue
+np of row and col= 7
+
+Fill the matrix...
+0 2 0 7 3 0 0
+2 0 2 0 6 4 0
+0 2 0 5 4 2 1
+7 0 5 0 1 0 6
+3 6 4 1 0 0 0
+0 4 2 0 0 0 0
+0 0 1 6 0 0 0
+0 edge (7,2) =32767
+1 edge (2,6) =32767
+2 edge (3,4) =32767
+
+
+*/
