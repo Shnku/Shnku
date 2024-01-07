@@ -19,8 +19,8 @@ char *extract_word(char *s, int start, int end)
 {
     char *p = (char *)calloc((end - start + 1), sizeof(char));
     char *point_p = p;
-    // printf("first: %u", p);
     chek_memallocation(p);
+    // printf("first: %u", p);
     // int j=0;
     for (int i = start; i < end; i++)
     {
@@ -28,7 +28,7 @@ char *extract_word(char *s, int start, int end)
         p++;
         // printf("\n%u", p);
     }
-    *p = '\0';
+    *p = '\0'; // p[j]='\0';
     // printf("\nnew:\t%u \t %u", p, point_p);
     // printf("\n%u", p - end - start);
     // return p - end - start;
@@ -67,6 +67,8 @@ int is_contained(const char *str, char *word)
     }
     // printf("\tcount= %d", count);
     return count == strlen(word);
+    // printf("\tcount= %d", count);
+    return count == strlen(word);
 }
 
 int main()
@@ -85,14 +87,16 @@ int main()
             a = extract_word(str, start, end);
             printf("\nextracted word: _%s_", a);
             // printf("\n== %s\n== %s\n== %s", keyboard[0], keyboard[1], keyboard[2]);
+            printf("\nextracted word: _%s_", a);
+            // printf("\n== %s\n== %s\n== %s", keyboard[0], keyboard[1], keyboard[2]);
 
             for (int i = 0; keyboard[i] != NULL; i++)
             {
                 int status = is_contained(keyboard[i], a);
-                // printf("\nstatus is: %d", status);
+                // // printf("\nstatus is: %d", status);
                 if (status)
                 {
-                    printf("\nyes this is contains\n");
+                    printf("\n\nyes this is contains\n");
                 }
             }
             start = end + 1;
@@ -200,4 +204,50 @@ t=t
 i=i
 d=d
 h=h⏎
+*/
+
+// bug fixed..
+/*
+extracted word: _this_
+t=t
+i=i
+s=s
+h=h
+extracted word: _is_
+i=i
+s=s
+extracted word: _a_
+a=a
+yes this is contains
+
+extracted word: _demo_
+e=e
+o=o
+d=d
+m=m
+extracted word: _akadsdl_
+a=a
+a=a
+s=s
+d=d
+d=d
+k=k
+l=l
+yes this is contains
+
+extracted word: _ytoure_
+e=e
+r=r
+t=t
+y=y
+u=u
+o=o
+yes this is contains
+
+extracted word: _thid_
+t=t
+i=i
+d=d
+h=h⏎
+
 */

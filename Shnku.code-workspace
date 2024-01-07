@@ -4,5 +4,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"numeric": "c",
+			"array": "c",
+			"string": "c",
+			"string_view": "c",
+			"span": "c"
+		}
+	}
 }
