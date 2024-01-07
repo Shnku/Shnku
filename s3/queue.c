@@ -15,22 +15,28 @@ int get_input(char *s)
     return n;
 }
 
-void enq(queue **front, int val)
+void enq(queue **rare, int val)
+{
+    if (*rare == NULL)
+    {
+        return;
+    }
+    queue *temp = (queue *)calloc(1, sizeof(queue));
+    temp->val = val;
+    temp->link = NULL;
+    (*rare)->link = temp;
+    *rare = temp;
+}
+
+int deq(queue **front)
 {
     if (*front == NULL)
     {
         return;
     }
-    queue *temp;
-    temp = (queue *)calloc(1, sizeof(queue));
-    temp->val = val;
-    temp->link = *front;
-    *front = temp;
-}
-
-int deq(queue **rare)
-{
-    
+    queue *temp = *front;
+    *front = temp->link;
+    free(temp);
 }
 
 void display(queue *front, queue *rare)

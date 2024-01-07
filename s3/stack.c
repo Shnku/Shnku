@@ -27,9 +27,13 @@ int main()
     switch (choice)
     {
     case 1:
-        push(stk1, data);
+        printf("\nperforming push...");
+        push(&stk1, data);
         break;
-
+    case 2:
+        printf("\nperforming pop...");
+        printf("\n%d poped;", pop(&stk1));
+        break;
     default:
         break;
     }
