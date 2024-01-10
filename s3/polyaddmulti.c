@@ -24,7 +24,8 @@ int main()
     exp2 = create_polynomial(exp2);
     display(exp1);
     display(exp2);
-    exp3 = poly_add(exp1, exp2, exp3);
+    // exp3 = poly_add(exp1, exp2, exp3);
+    exp3 = poly_multi(exp1, exp2, exp3);
     display(exp3);
     return 0;
 }
@@ -47,7 +48,7 @@ TERM *create_polynomial(TERM *node)
 
 TERM *add_term(TERM *start, int coff, int pow)
 {
-    TERM *temp, *ptr;
+    TERM *temp, *p2_first;
     temp = (TERM *)calloc(1, sizeof(TERM));
     temp->coff = coff;
     temp->pow = pow;
@@ -57,12 +58,12 @@ TERM *add_term(TERM *start, int coff, int pow)
         start = temp;
         return start;
     }
-    ptr = start;
-    while (ptr->link != NULL)
+    p2_first = start;
+    while (p2_first->link != NULL)
     {
-        ptr = ptr->link;
+        p2_first = p2_first->link;
     }
-    ptr->link = temp;
+    p2_first->link = temp;
     return start;
 }
 
@@ -155,25 +156,26 @@ ____Displaying the polynomial_____
 
 TERM *poly_multi(TERM *poly1, TERM *poly2, TERM *poly3)
 {
-    TERM *ptr, *temp, *location;
+    TERM *p2_first, *p3_first, *location;
     int cof, pow;
     while (poly1 != NULL)
     {
-        ptr = poly2;
-        while (ptr != NULL)
+        p2_first = poly2;
+        while (p2_first != NULL)
         {
-            cof = poly1->coff * poly2->coff;
-            pow = poly1->pow + poly2->pow;
-            ptr = temp;
-            location = search(temp, pow);
-            if (location != NULL)
-                location->coff += cof;
-            else
+            cof = poly1->coff * p2_first->coff;
+            pow = poly1->pow + p2_first->pow;
+            p3_first = poly3;
+            location = search(p3_first, pow);
+            if (location == NULL)
                 poly3 = add_term(poly3, cof, pow);
-            temp = temp->link;
+            else
+                location->coff += cof;
+            p2_first = p2_first->link;
         }
-        ptr = ptr->link;
+        poly1 = poly1->link;
     }
+    return poly3;
 }
 
 TERM *search(TERM *node, int data)
