@@ -36,17 +36,10 @@ void init_Q(Qarr *p)
 
 void enq(Qarr *p, int data)
 {
-    if (isempty(&p))
-        p->front = p->rear = 0;
-    else if (p->rear == MAX - 1)
-    {
-        for (int i = p->front; i <= p->rear; i++)
-            p->val[i - p->front] = p->val[i];
-        p->rear = p->rear - p->front + 1;
-        p->front = 0;
-    }
+    if (p->front == -1)
+        p->rear = p->front = 0;
     else
-        p->rear++;
+        p->rear = (p->rear + 1) % MAX;
     p->val[p->rear] = data;
 }
 
@@ -57,7 +50,7 @@ int deq(Qarr *p)
     if (p->front == p->rear)
         p->front = p->rear = -1;
     else
-        p->front++;
+        p->front = (p->front + 1) % MAX;
     return temp;
 }
 
@@ -116,3 +109,47 @@ int main()
     }
     return 0;
 }
+
+/*
+||__this is the queue system__||
+1) for enqueue...
+2) for dequeue...
+3) display queue...
+En yer choice: 1
+
+performing enqueue...10
+
+En yer choice: 1
+
+performing enqueue...20
+
+En yer choice: 1
+
+performing enqueue...30
+
+En yer choice: 3
+
+the queue is ::  10 -  20 -  30 -
+En yer choice: 2
+
+performing dequeue...10 out..
+En yer choice: 2
+
+performing dequeue...20 out..
+En yer choice: 2
+
+performing dequeue...30 out..
+En yer choice: 2
+
+performing dequeue...Queue is empty..
+En yer choice: 3
+
+the queue is ::  22080 -
+En yer choice: 2
+
+performing dequeue...Queue is empty..
+En yer choice: 3
+
+the queue is ::  22080 -
+En yer choice: ^C⏎
+*/
