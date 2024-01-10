@@ -14,6 +14,7 @@ typedef struct queue
 } Que;
 
 int get_input(char *s);
+int isEmpty(Que *ptr);
 void init_Q(Que *q);
 void enq(Que *q, int val);
 int deq(Que *q);
@@ -35,15 +36,19 @@ int main()
         switch (choice)
         {
         case 1:
-            printf("\nperforming enqueue...");
             val = get_input("valu data: ");
             enq(&q1, val);
             break;
         case 2:
-            printf("\nperforming dequeue...");
-            deq(&q1);
+            val = deq(&q1);
+            printf("\n%d dequeue...", val);
             break;
         case 3:
+            if (q1.front->val==0)
+            {
+                printf("empty");
+                break;
+            }
             printf("\nthe Que is :: ");
             display(q1);
             break;
@@ -67,31 +72,70 @@ void init_Q(Que *q)
     q->front = q->rear = NULL;
 }
 
-void enq(Que *q1, int val)
+void enq(Que *ptr, int value)
 {
-    node *temp = (node *)calloc(1, sizeof(node));
-    temp->val = val;
+    node *temp;
+    temp = (node *)malloc(sizeof(node));
+    temp->val = value;
     temp->link = NULL;
-}
-
-int deq(Que *q)
-{
-    if (*front == NULL)
+    if (ptr->front == NULL)
     {
-        return;
+        ptr->front = temp;
+        ptr->rear = temp;
     }
-    Que *temp = *front;
-    *front = temp->link;
-    free(temp);
-}
-
-void display(Que q)
-{
-    if (front == q1.rear)
-        printf("\nqueue is empty..");
-    while (front != q1.rear)
+    else
     {
-        printf("%d - ", front->val);
-        front = front->link;
+        (ptr->rear)->link = temp;
+        ptr->rear = temp;
     }
 }
+
+int isEmpty(Que *ptr)
+{
+    if (ptr->front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int deq(Que *ptr)
+{
+    node *temp;
+    int i;
+    if (isEmpty(ptr))
+    {
+        return 0;
+    }
+    else
+    {
+        temp = ptr->front;
+        ptr->front = ptr->front->link;
+        i = temp->val;
+        free(temp);
+        return i;
+    }
+}
+
+// void display(Que q1)
+// {
+//     if (q1.front == q1.rear)
+//         printf("%d - ", q1.front->val);
+//     while (q1.front != q1.rear)
+//     {
+//         printf("%d - ", q1.front->val);
+//         q1.front = q1.front->link;
+//     }
+// }
+
+void display(Que q1)
+{
+    while (q1.front)
+    {
+        printf("%d - ", q1.front->val);
+        q1.front = q1.front->link;
+    }
+}
+
+/*
+
+*/
