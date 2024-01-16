@@ -26,7 +26,7 @@ TREE *addnode(TREE *root, int val);
 TREE *create_bst(TREE *root)
 {
     int no_of_node, data;
-    root == NULL;
+    root = NULL;
     no_of_node = get_input("no of nodes");
     if (root == NULL)
     {
