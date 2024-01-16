@@ -44,17 +44,10 @@ int main()
         scanf("%d", &pc[i].bt);
     }
 
-    // sort(pc, n);
+    int temp = 0;
+
     sort(pc, 1, n);
-
-    pc[0].ct = pc[0].bt;
-    pc[0].tat = pc[0].ct - pc[0].at;
-    pc[0].wt = pc[0].tat - pc[0].bt;
-    int temp = pc[0].ct;
-    avg_tat = pc[0].tat;
-    avg_wt = pc[0].wt;
-
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         pc[i].ct = temp + pc[i].bt;
         pc[i].tat = pc[i].ct - pc[i].at;
