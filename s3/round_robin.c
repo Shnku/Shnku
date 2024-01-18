@@ -6,66 +6,65 @@ typedef struct srtf
     int ct, wt, tat;
 } PROCESS;
 
-void sort(PROCESS p[], int count)
+void disp(PROCESS p[], int n)
 {
-    PROCESS temp;
-    for (int i = 0; i < count - 1; i++)
+    printf("\n___queue is______");
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < count - i - 1; j++)
-        {
-            printf("\n %d > %d ?", p[j].bt, p[j + 1].bt);
-            if (p[j].bt > p[j + 1].bt)
-            {
-                temp = p[j];
-                p[j] = p[j + 1];
-                p[j + 1] = temp;
-            }
-        }
+        printf("p%d ", p[i].pid);
     }
 }
 
-void disp(PROCESS p[], int n)
+void shift(PROCESS readyQ[], int *rear)
 {
-    printf("\n queue is ==== ");
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < (*rear) - 1; i++)
     {
-        printf("- %d ", p[i].bt);
+        readyQ[i] = readyQ[i + 1];
     }
+    (*rear)--;
 }
 
 void round_robin(PROCESS p[], int item, int time, int timeQ)
 {
-    int indx = 0;
+    int indx = 0, timeQ2 = timeQ, flag = 0;
     PROCESS readyQ[item];
-    int rear = 0;
+    int rear = 0, front = 0;
 
     readyQ[rear++] = p[indx++];
+    timeQ2--;
     for (int t = 1; t <= time; t++)
     {
-        if (p[indx].at == t)
-        {
-            readyQ[rear] = p[indx];
-            indx++, rear++;
-        }
-        // printf("\nTime: %d, Process: P%d, Remaining BT: %d", t, readyQ[0].pid, readyQ[0].bt);
-        
         readyQ[0].bt--;
+        printf("\n(%d) Process=P%d,Remaining BT=%d", t, readyQ[0].pid, readyQ[0].bt);
         if (readyQ[0].bt == 0)
         {
             p[readyQ[0].pid].ct = t;
             printf(" (Completed)");
-            rear--;
+            disp(readyQ, rear);
+            shift(readyQ, &rear); // as quantam end for <time quantam
+            timeQ2 = 0, flag = 1; // if new proc insert
+            disp(readyQ, rear);
         }
-        else if ((t) % timeQ == 0)
+        if (timeQ2 == 0)
         {
-            PROCESS temp = readyQ[0];
-            for (int i = 0; i < rear - 1; i++)
-            {
-                readyQ[i] = readyQ[i + 1];
+            disp(readyQ, rear);
+            printf("\nquantam end..");
+            if (!flag) // check neded..
+            {          // only do this when actually quantam end..
+                PROCESS temp = readyQ[0];
+                shift(readyQ, &rear);
+                readyQ[rear++] = temp;
             }
-            readyQ[rear - 1] = temp;
+            timeQ2 = timeQ;
+            disp(readyQ, rear);
         }
-        // }
+        if (p[indx].at == t)
+        {
+            disp(readyQ, rear);
+            readyQ[rear++] = p[indx++];
+            disp(readyQ, rear);
+        }
+        timeQ2--, flag = 0; // changed..
     }
 }
 
@@ -109,3 +108,82 @@ int main()
 
     return 0;
 }
+
+// fixed..
+/*
+en no of process: 4
+enter AT + BT :: 0 10
+enter AT + BT :: 1 6
+enter AT + BT :: 3 2
+enter AT + BT :: 5 4
+enter time quantam: 4
+
+(1) Process=P0,Remaining BT=9
+___queue is______p0
+___queue is______p0 p1
+(2) Process=P0,Remaining BT=8
+(3) Process=P0,Remaining BT=7
+___queue is______p0 p1
+___queue is______p0 p1 p2
+(4) Process=P0,Remaining BT=6
+___queue is______p0 p1 p2
+quantam end..
+___queue is______p1 p2 p0
+(5) Process=P1,Remaining BT=5
+___queue is______p1 p2 p0
+___queue is______p1 p2 p0 p3
+(6) Process=P1,Remaining BT=4
+(7) Process=P1,Remaining BT=3
+(8) Process=P1,Remaining BT=2
+___queue is______p1 p2 p0 p3
+quantam end..
+___queue is______p2 p0 p3 p1
+(9) Process=P2,Remaining BT=1
+(10) Process=P2,Remaining BT=0 (Completed)
+___queue is______p2 p0 p3 p1
+___queue is______p0 p3 p1
+___queue is______p0 p3 p1
+quantam end..
+___queue is______p0 p3 p1
+(11) Process=P0,Remaining BT=5
+(12) Process=P0,Remaining BT=4
+(13) Process=P0,Remaining BT=3
+(14) Process=P0,Remaining BT=2
+___queue is______p0 p3 p1
+quantam end..
+___queue is______p3 p1 p0
+(15) Process=P3,Remaining BT=3
+(16) Process=P3,Remaining BT=2
+(17) Process=P3,Remaining BT=1
+(18) Process=P3,Remaining BT=0 (Completed)
+___queue is______p3 p1 p0
+___queue is______p1 p0
+___queue is______p1 p0
+quantam end..
+___queue is______p1 p0
+(19) Process=P1,Remaining BT=1
+(20) Process=P1,Remaining BT=0 (Completed)
+___queue is______p1 p0
+___queue is______p0
+___queue is______p0
+quantam end..
+___queue is______p0
+(21) Process=P0,Remaining BT=1
+(22) Process=P0,Remaining BT=0 (Completed)
+___queue is______p0
+___queue is______
+___queue is______
+quantam end..
+___queue is______
+___diaplaying stats..__
+
+pc      AT      BT      CT      TAT     WT
+
+p0      0       10      22      22      12
+p1      1       6       20      19      13
+p2      3       2       10      7       5
+p3      5       4       18      13      9
+
+Avg TAT: 15.250000
+Avg_WT: 9.750000⏎
+*/
