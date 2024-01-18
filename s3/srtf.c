@@ -138,7 +138,7 @@ Avg_WT: 15.000000⏎
 
 */
 
-//!fixed..
+//! fixed..
 /*
 en no of process: 4
 enter AT + BT :: 0 10
@@ -147,40 +147,40 @@ enter AT + BT :: 3 2
 enter AT + BT :: 5 4
 
  time= 1
- queue is ==== 9 
+ queue is ==== 9
  9 > 6 ?
- queue is ==== 6 9 
+ queue is ==== 6 9
  time= 2
  time= 3
- queue is ==== 4 9 
+ queue is ==== 4 9
  4 > 9 ?
  9 > 2 ?
  4 > 2 ?
- queue is ==== 2 4 9 
+ queue is ==== 2 4 9
  time= 4
  time= 5
- queue is ==== 0 4 9 
+ queue is ==== 0 4 9
  0 > 4 ?
  4 > 9 ?
  9 > 4 ?
  0 > 4 ?
  4 > 4 ?
  0 > 4 ?
- queue is ==== 0 4 4 9 
- queue is ==== 0 4 4 9 
- queue is ==== 4 4 9 
+ queue is ==== 0 4 4 9
+ queue is ==== 0 4 4 9
+ queue is ==== 4 4 9
  time= 6
  time= 7
  time= 8
  time= 9
- queue is ==== 0 4 9 
- queue is ==== 4 9 
+ queue is ==== 0 4 9
+ queue is ==== 4 9
  time= 10
  time= 11
  time= 12
  time= 13
- queue is ==== 0 9 
- queue is ==== 9 
+ queue is ==== 0 9
+ queue is ==== 9
  time= 14
  time= 15
  time= 16
@@ -190,8 +190,8 @@ enter AT + BT :: 5 4
  time= 20
  time= 21
  time= 22
- queue is ==== 0 
- queue is ==== 
+ queue is ==== 0
+ queue is ====
 ___diaplaying stats..__
 
 pc      AT      BT      CT      TAT     WT

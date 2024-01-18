@@ -42,27 +42,30 @@ void round_robin(PROCESS p[], int item, int time, int timeQ)
     readyQ[rear++] = p[indx++];
     for (int t = 1; t <= time; t++)
     {
-        printf("%d radyq0.bt =",readyQ[0].bt);
-        readyQ[0].bt--;
-        if (readyQ[0].bt >= timeQ)
-        {
-            printf("switch");
-            readyQ[rear++] = readyQ[0];
-        }
-        printf("\n time= %d", t);
         if (p[indx].at == t)
         {
-            disp(p, rear);
             readyQ[rear] = p[indx];
             indx++, rear++;
-            disp(p, rear);
         }
+        // printf("\nTime: %d, Process: P%d, Remaining BT: %d", t, readyQ[0].pid, readyQ[0].bt);
+        
+        readyQ[0].bt--;
         if (readyQ[0].bt == 0)
         {
-            disp(p, rear);
             p[readyQ[0].pid].ct = t;
-            disp(p, rear);
+            printf(" (Completed)");
+            rear--;
         }
+        else if ((t) % timeQ == 0)
+        {
+            PROCESS temp = readyQ[0];
+            for (int i = 0; i < rear - 1; i++)
+            {
+                readyQ[i] = readyQ[i + 1];
+            }
+            readyQ[rear - 1] = temp;
+        }
+        // }
     }
 }
 
