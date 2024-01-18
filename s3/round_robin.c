@@ -24,31 +24,44 @@ void sort(PROCESS p[], int count)
     }
 }
 
-void round_robin(PROCESS p[], int size, int time, int timeQ)
+void disp(PROCESS p[], int n)
 {
-    int indx = 0, flag = 0;
-    PROCESS waitq[size];
+    printf("\n queue is ==== ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("- %d ", p[i].bt);
+    }
+}
+
+void round_robin(PROCESS p[], int item, int time, int timeQ)
+{
+    int indx = 0;
+    PROCESS readyQ[item];
     int rear = 0;
 
-    waitq[rear++] = p[indx++];
+    readyQ[rear++] = p[indx++];
     for (int t = 1; t <= time; t++)
     {
-        waitq[0].bt--;
+        printf("%d radyq0.bt =",readyQ[0].bt);
+        readyQ[0].bt--;
+        if (readyQ[0].bt >= timeQ)
+        {
+            printf("switch");
+            readyQ[rear++] = readyQ[0];
+        }
         printf("\n time= %d", t);
         if (p[indx].at == t)
         {
-            waitq[rear] = p[indx];
+            disp(p, rear);
+            readyQ[rear] = p[indx];
             indx++, rear++;
-            sort(waitq, rear);
+            disp(p, rear);
         }
-        if (waitq[0].bt == 0)
+        if (readyQ[0].bt == 0)
         {
-            p[waitq[0].pid].ct = t;
-            for (int i = 0; i < rear; i++)
-            {
-                waitq[i] = waitq[i + 1];
-            }
-            rear--;
+            disp(p, rear);
+            p[readyQ[0].pid].ct = t;
+            disp(p, rear);
         }
     }
 }
@@ -68,9 +81,9 @@ int main()
         scanf("%d", &pc[t].at);
         scanf("%d", &pc[t].bt);
         time += pc[t].bt;
-        printf("enter time quantam: ");
-        scanf("%d", &tq);
     }
+    printf("enter time quantam: ");
+    scanf("%d", &tq);
     round_robin(pc, n, time, tq);
     for (int i = 0; i < n; i++)
     {
