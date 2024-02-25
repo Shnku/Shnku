@@ -9,31 +9,30 @@ sem_t s1, s2, s3;
 
 void *process_a(void *arg) {
     while (1) {
-        printf("a\n");
         sem_wait(&s3);
-        // printf("in wait\n");
-        sem_post(&s2);
+        printf("c\n");
         sleep(1);
+        sem_post(&s2);
     }
     return NULL;
 }
 
 void *process_b(void *arg) {
     while (1) {
-        printf("b\n");
         sem_wait(&s1);
-        sem_post(&s3);
+        printf("b\n");
         sleep(1);
+        sem_post(&s3);
     }
     return NULL;
 }
 
 void *process_c(void *arg) {
     while (1) {
-        printf("c\n");
         sem_wait(&s2);
-        sem_post(&s1);
+        printf("a\n");
         sleep(1);
+        sem_post(&s1);
     }
     return NULL;
 }
@@ -59,3 +58,23 @@ int main() {
 
     return 0;
 }
+
+//output...
+/*
+
+b
+c
+a
+b
+c
+a
+b
+c
+a
+b
+c
+a
+b
+c
+a
+*/
