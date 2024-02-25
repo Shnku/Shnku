@@ -2,7 +2,6 @@
 #include <semaphore.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 sem_t s0, s1, s2;
 
@@ -10,17 +9,18 @@ void *p0() {
     printf("enter p0\n");
     while (1) {
         sem_wait(&s0);
-        printf("0\n");
-        // sleep(1);
+        printf("p0 in cs ......0\n");
         sem_post(&s1);
         sem_post(&s2);
     }
     printf("exit p0\n");
+    return NULL;
 }
 
 void *p1() {
     printf("enter p1\n");
     sem_wait(&s1);
+    printf("p1 in cs....1\n");
     sem_post(&s0);
     printf("exit p1\n");
     return NULL;
@@ -29,6 +29,7 @@ void *p1() {
 void *p2() {
     printf("enter p2\n");
     sem_wait(&s2);
+    printf("p2 in cs....2\n");
     sem_post(&s0);
     printf("exit p2\n");
     return NULL;
@@ -58,15 +59,29 @@ int main() {
 }
 
 
-//output..
+//output.. not only this others anything is possible....
 /*
 enter p0
-0
+p0 in cs ......0
 enter p1
-exit p1
-0
 enter p2
+p1 in cs.......1
+exit p1
+p0 in cs ......0
+p2 in cs.......2
 exit p2
-0
-^C
+p0 in cs ......0
+.
+.
+enter p1
+enter p2
+enter p0
+p0 in cs ......0
+p1 in cs.......1
+exit p1
+p2 in cs.......2
+exit p2
+p0 in cs ......0
+p0 in cs ......0
 */
+//they can enter in any time in ready queue ..
