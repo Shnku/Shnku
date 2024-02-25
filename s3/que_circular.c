@@ -24,7 +24,8 @@ bool isempty(Qarr *p)
 
 bool isfull(Qarr *p)
 {
-    if (p->front == 0 && p->rear == MAX - 1)
+    // if (p->front == (0 && p->rear == MAX - 1))
+    if (p->front == (p->rear + 1) % MAX)
         return true;
     return false;
 }
@@ -56,9 +57,16 @@ int deq(Qarr *p)
 
 void display(Qarr q1)
 {
+    if (isempty(&q1))
+    {
+        printf("\nqueue is empty: ");
+        return;
+    }
+    if (q1.rear < q1.front) // changed from <= ..happening problem
+        q1.rear += MAX;
     for (int i = q1.front; i <= q1.rear; i++)
     {
-        printf(" %d - ", q1.val[i]);
+        printf(" %d - ", q1.val[i % MAX]);
     }
 }
 
@@ -116,40 +124,104 @@ int main()
 2) for dequeue...
 3) display queue...
 En yer choice: 1
-
 performing enqueue...10
-
 En yer choice: 1
-
 performing enqueue...20
-
 En yer choice: 1
-
 performing enqueue...30
-
 En yer choice: 3
-
 the queue is ::  10 -  20 -  30 -
 En yer choice: 2
-
 performing dequeue...10 out..
 En yer choice: 2
-
 performing dequeue...20 out..
 En yer choice: 2
-
 performing dequeue...30 out..
 En yer choice: 2
-
 performing dequeue...Queue is empty..
 En yer choice: 3
-
 the queue is ::  22080 -
 En yer choice: 2
-
 performing dequeue...Queue is empty..
 En yer choice: 3
-
 the queue is ::  22080 -
 En yer choice: ^C⏎
+*/
+
+/* !still problem...
+||__this is the queue system__||
+1) for enqueue...
+2) for dequeue...
+3) display queue...
+En yer choice: 1
+performing enqueue...10
+En yer choice: 1
+performing enqueue...20
+En yer choice: 3
+the queue is ::  10 -  20 -
+En yer choice: 2
+performing dequeue...10 out..
+En yer choice: 3
+the queue is ::  20 -  0 -  0 -  0 -  10 -  20 -
+En yer choice: 1
+performing enqueue...50
+En yer choice: 3
+the queue is ::  20 -  50 -
+En yer choice: 1
+performing enqueue...60
+En yer choice: 3
+the queue is ::  20 -  50 -  60 -
+En yer choice: 2
+performing dequeue...20 out..
+En yer choice: 2
+performing dequeue...50 out..
+En yer choice: 3
+the queue is ::  60 -  0 -  10 -  20 -  50 -  60 -
+En yer choice: ^C⏎
+*/
+
+// fixed.......................
+/*
+||__this is the queue system__||
+1) for enqueue...
+2) for dequeue...
+3) display queue...
+En yer choice: 1
+performing enqueue...11
+En yer choice: 1 22
+performing enqueue...
+En yer choice: 1 35
+performing enqueue...
+En yer choice: 1 56
+performing enqueue...
+En yer choice: 1
+performing enqueue...59
+En yer choice: 1
+performing enqueue...89
+Queue is full
+En yer choice: 3
+the queue is ::  11 -  22 -  35 -  56 -  59 -
+En yer choice: 2
+performing dequeue...11 out..
+En yer choice: 3
+the queue is ::  22 -  35 -  56 -  59 -
+En yer choice: 2
+performing dequeue...22 out..
+En yer choice: 3
+the queue is ::  35 -  56 -  59 -
+En yer choice: 2
+performing dequeue...35 out..
+En yer choice: 2
+performing dequeue...56 out..
+En yer choice: 2
+performing dequeue...59 out..
+En yer choice: 2
+performing dequeue...Queue is empty..
+En yer choice: 2
+performing dequeue...Queue is empty..
+En yer choice: 3
+the queue is ::
+queue is empty:
+En yer choice: 333
+quiting..⏎
 */
