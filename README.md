@@ -10,8 +10,10 @@ _- 🌱... I’m currently learning C/C++/Java ...🌱 -_ <br><br>
 - ... ⚡⚡ Fun fact: I am noob ⚡⚡... -<br>
 </p>
 <hr>
+<!--
+[![TopLangs](https://github-readme-stats.vercel.app/api/top-langs/?username=shnku&layout=compact)](https://github.com/shnku/github-readme-stats) -->
 
-[![TopLangs](https://github-readme-stats.vercel.app/api/top-langs/?username=shnku&layout=compact)](https://github.com/shnku/github-readme-stats)
+<p>&nbsp;<img align="center" width="460" height="300" src="https://github-readme-stats.vercel.app/api/top-langs?username=shnku&show_icons=true&locale=en&layout=compact&theme=radical" alt="ShAnku" /></p>
 
 <hr>
 <a href="https://github.com/Shnku" align="center">
