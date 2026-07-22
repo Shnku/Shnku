@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="100%">
+    <defs>
+        <style>
+            .text { font-family: "FiraCode Nerd Font", "Fira Code", Consolas, "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji"; font-size: 15px; }
+            .logo { font-family: "FiraCode Nerd Font", "Fira Code", monospace; font-size: 16px; font-weight: bold; line-height: 1.2; }
+            .title { font-family: "FiraCode Nerd Font", "Fira Code", monospace; font-size: 17px; font-weight: bold; }
+        </style>
+
+        <!-- Gradient for ASCII Octocat -->
+        <linearGradient id="octocat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f5c2e7" />
+            <stop offset="50%" stop-color="#cba6f7" />
+            <stop offset="100%" stop-color="#89b4fa" />
+        </linearGradient>
+
+        <!-- Gradients for Title -->
+        <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#a6e3a1" />
+            <stop offset="100%" stop-color="#89b4fa" />
+        </linearGradient>
+    </defs>
+
+    <!-- Terminal Background -->
+    <rect width="920" height="620" rx="10" fill="#1e1e2e" />
+    <rect width="920" height="40" fill="#11111b" rx="10" />
+
+    <!-- Mac Window Controls -->
+    <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+    <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+    <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+
+    <!-- Window Title -->
+    <text x="460" y="25" font-family="Consolas" font-size="22" fill="#a6adc8" text-anchor="middle">Shnku@github: ~ Hi there 👋</text>
+
+    <!-- Left Column: Scaled Up ASCII Octocat Logo -->
+    <text x="35" y="90" class="logo" fill="url(#octocat-grad)" xml:space="preserve">
+<tspan x="35" dy="1.2em">       MMM.           .MMM</tspan>
+<tspan x="35" dy="1.2em">       MMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">       MMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">      MMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">     MMMMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">    MMMMMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">    MMMM::- -:::::::- -::MMMM</tspan>
+<tspan x="35" dy="1.2em">     MM~:~ 00~:::::~ 00~:~MM</tspan>
+<tspan x="35" dy="1.2em">.. MMMMM::.00:::+:::.00::MMMMM ..</tspan>
+<tspan x="35" dy="1.2em">      .MM::::: ._. :::::MM.</tspan>
+<tspan x="35" dy="1.2em">         MMMM;:::::;MMMM</tspan>
+<tspan x="35" dy="1.2em">  -MM        MMMMMMM</tspan>
+<tspan x="35" dy="1.2em">  ^  M+     MMMMMMMMM</tspan>
+<tspan x="35" dy="1.2em">      MMMMMMM MM MM MM</tspan>
+<tspan x="35" dy="1.2em">           MM MM MM MM</tspan>
+<tspan x="35" dy="1.2em">           MM MM MM MM</tspan>
+<tspan x="35" dy="1.2em">        .~~MM~MM~MM~MM~~.</tspan>
+<tspan x="35" dy="1.2em">     ~~~~MM:~MM~~~MM~:MM~~~~</tspan>
+<tspan x="35" dy="1.2em">    ~~~~~~==~==~~~==~==~~~~~~</tspan>
+    </text>
+
+    <!-- Right Column: GitHub & Profile Stats with Nerd Fonts -->
+    <text x="410" y="80" class="text" fill="#cdd6f4" xml:space="preserve">
+<tspan x="410" dy="1.2em" class="title" fill="url(#title-grad)">shnku<tspan fill="#cdd6f4">@</tspan>github</tspan>
+<tspan x="410" dy="1.2em" fill="#6c7086">----------------------------------------</tspan>
+
+<tspan x="410" dy="1.5em"><tspan fill="#f38ba8" font-weight="bold"> Name      </tspan> ShAnku</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#fab387" font-weight="bold"> Role      </tspan> Student</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#f9e2af" font-weight="bold"> Pronouns  </tspan> He / Him</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#a6e3a1" font-weight="bold">󰚩 Bio       </tspan> I'm a Linux Nerd</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#94e2d5" font-weight="bold"> Seeking   </tspan> Beginner Guidance</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold"> Ask Me    </tspan> Linux, Scripting &amp; Deep Learning</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold">󰇮 Contact   </tspan> x.com/ShAnku011011100</tspan>
+
+<tspan x="410" dy="1.8em" fill="#6c7086">------------- Development --------------</tspan>
+
+<tspan x="410" dy="1.5em"><tspan fill="#f38ba8" font-weight="bold"> Languages </tspan> .c .cpp .py .sh. java .dart .md .tex</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#fab387" font-weight="bold">󰒋 Tech Stack</tspan> Linux, Jupyter, Marimo, Flutter</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#a6e3a1" font-weight="bold">󰑣 Learning  </tspan> Sys Design, ML Algos &amp; Python Libs</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold"> Interests </tspan> Visualizing Complex Concepts</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold"> Motto     </tspan> Learn • Build • Visualize</tspan>
+
+<tspan x="410" dy="1.8em" fill="#6c7086">------------- Daily Driver -------------</tspan>
+
+<tspan x="410" dy="1.5em"><tspan fill="#89b4fa" font-weight="bold"> OS        </tspan> <tspan fill="#f38ba8">●</tspan> Fedora <tspan fill="#f9e2af">●</tspan> Garuda</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#a6e3a1" font-weight="bold"> Shell     </tspan> <tspan fill="#fab387">●</tspan> zsh <tspan fill="#a6e3a1">●</tspan> fish</tspan>
+<tspan x="410" dy="1.3em"><tspan fill="#89dceb" font-weight="bold">󰨞 Editor    </tspan> <tspan fill="#cba6f7">●</tspan> VSCode <tspan fill="#f38ba8">●</tspan> LazyVim</tspan>
+
+<!-- The Classic Neofetch Color Blocks -->
+<tspan x="410" dy="2.2em"><tspan fill="#45475a">███</tspan> <tspan fill="#f38ba8">███</tspan> <tspan fill="#a6e3a1">███</tspan> <tspan fill="#f9e2af">███</tspan> <tspan fill="#89b4fa">███</tspan> <tspan fill="#f5c2e7">███</tspan> <tspan fill="#94e2d5">███</tspan> <tspan fill="#bac2de">███</tspan></tspan>
+<tspan x="410" dy="1.1em"><tspan fill="#585b70">███</tspan> <tspan fill="#eba0ac">███</tspan> <tspan fill="#94e2d5">███</tspan> <tspan fill="#f38ba8">███</tspan> <tspan fill="#b4befe">███</tspan> <tspan fill="#cba6f7">███</tspan> <tspan fill="#89dceb">███</tspan> <tspan fill="#a6adc8">███</tspan></tspan>
+    </text>
+
+    <!-- Bottom Status Bar -->
+    <rect x="0" y="590" width="920" height="30" fill="#181825" />
+    <!-- <text x="900" y="610" font-family="sans-serif" font-size="12" fill="#585b70" text-anchor="end">Last updated: static neofetch configuration</text> -->
+</svg>
