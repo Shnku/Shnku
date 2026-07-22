@@ -1,22 +1,15 @@
-<h1 align = "center">Hi there 👋</h1><hr>
-<p align="center">
- -- 🔭... I’m currently working as A Student ...🔭 -- <br>
-_- 🌱... I’m currently learning C/C++/Java ...🌱 -_ <br><br>
-- ... 👯 I’m looking to collaborate on Self 👯... -<br>
-- ... 🤔 I’m looking for help as a Beginner 🤔... -<br>
-- ... 💬 Ask me about Anything 💬... -<br>
-- ... 📫 How to reach me: No need to reach 📫... -<br>
-- ... 😄 Pronouns: He/Him 📫... -<br>
-- ... ⚡⚡ Fun fact: I am noob ⚡⚡... -<br>
-</p>
-<hr>
 <!--
-[![TopLangs](https://github-readme-stats.vercel.app/api/top-langs/?username=shnku&layout=compact)](https://github.com/shnku/github-readme-stats) -->
+**Shnku/Shnku** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-<p>&nbsp;<img align="center" width="460" height="300" src="https://github-readme-stats.vercel.app/api/top-langs?username=shnku&show_icons=true&locale=en&layout=compact&theme=radical" alt="ShAnku" /></p>
+Here are some ideas to get you started:
+-->
 
-<hr>
-<a href="https://github.com/Shnku" align="center">
-  <img alt="GitHub Snake Dark" src="https://github.com/Shnku/Shnku/raw/main/readme/github-contribution-grid-snake-dark.svg#gh-dark-mode-only"/>
-</a>
-<!-->
+<center>
+  <img alt="neofetch" src="readme/neofetch.svg"/>
+</center>
+
+---
+
+<center>
+  <img alt="neofetch" src="readme/github-contribution-grid-snake-dark.svg"/>
+</center>
