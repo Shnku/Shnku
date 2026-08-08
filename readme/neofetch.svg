@@ -71,8 +71,26 @@
 
 <tspan x="410" dy="1.8em" fill="#6c7086">------------- Development --------------</tspan>
 
-<tspan x="410" dy="1.5em"><tspan fill="#E13B8F" font-weight="bold"> Languages </tspan> .c .cpp .py .sh .java .dart .md .tex</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold">󰒋 Tech Stack</tspan> Linux, Jupyter, Marimo, Flutter</tspan>
+<!-- Icons-only Languages (Nerd Font glyphs) -->
+<tspan x="410" dy="1.5em">
+  <tspan fill="#E13B8F" font-size="18"></tspan>
+  <tspan fill="#D93A2E" font-size="18"></tspan>
+  <tspan fill="#4BE1C4" font-size="18"></tspan>
+  <tspan fill="#04796F" font-size="18"></tspan>
+  <tspan fill="#89b4fa" font-size="18"></tspan>
+  <tspan fill="#cba6f7" font-size="18"></tspan>
+  <tspan fill="#4BE1C4" font-size="18"></tspan>
+  <tspan fill="#E13B8F" font-size="18">𝖙</tspan>
+</tspan>
+
+<!-- Icons-only Tech Stack -->
+<tspan x="410" dy="1.3em">
+  <tspan fill="#4BE1C4" font-size="18"></tspan>
+  <tspan fill="#89b4fa" font-size="18"></tspan>
+  <tspan fill="#E13B8F" font-size="18"></tspan>
+  <tspan fill="#04796F" font-size="18"></tspan>
+</tspan>
+
 <tspan x="410" dy="1.3em"><tspan fill="#04796F" font-weight="bold">󰑣 Learning  </tspan> Sys Design, ML Algos &amp; Python Libs</tspan>
 <tspan x="410" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold"> Interests </tspan> Visualizing Complex Concepts</tspan>
 <tspan x="410" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold"> Motto     </tspan> Learn • Build • Visualize</tspan>
@@ -90,5 +108,5 @@
 
     <!-- Bottom Status Bar -->
     <rect x="0" y="590" width="920" height="30" fill="#081015" />
-    <text x="900" y="610" font-family="sans-serif" font-size="12" fill="#585b70" text-anchor="end">Last updated: themeed neofetch (nerd fonts)</text>
+    <text x="900" y="610" font-family="sans-serif" font-size="12" fill="#585b70" text-anchor="end">Last updated: themeed neofetch (nerd fonts) - icons only</text>
 </svg>
