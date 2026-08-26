@@ -3,7 +3,7 @@
         <style>
             /* Use popular Nerd Font names with fallbacks */
             .text { font-family: "Iosevka Nerd Font", "FiraCode Nerd Font", "Fira Code", Consolas, "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji"; font-size: 15px; }
-            .logo { font-family: "Iosevka Nerd Font", "FiraCode Nerd Font", "Fira Code", monospace; font-size: 16px; font-weight: bold; line-height: 1.2; }
+            .logo { font-family: "Iosevka Nerd Font", "FiraCode Nerd Font", "Fira Code", monospace; font-size: 19px; font-weight: bold; line-height: 1.1; }
             .title { font-family: "Iosevka Nerd Font", "FiraCode Nerd Font", "Fira Code", monospace; font-size: 17px; font-weight: bold; }
         </style>
 
@@ -34,79 +34,63 @@
     <text x="460" y="25" font-family="Consolas" font-size="22" fill="#8A8F95" text-anchor="middle">Shnku@github: ~ Hi there 👋</text>
 
     <!-- Left Column: Scaled Up ASCII Octocat Logo -->
-    <text x="35" y="90" class="logo" fill="url(#octocat-grad)" xml:space="preserve">
-<tspan x="35" dy="1.2em">       MMM.           .MMM</tspan>
-<tspan x="35" dy="1.2em">       MMMMMMMMMMMMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">       MMMMMMMMMMMMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">      MMMMMMMMMMMMMMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">     MMMMMMMMMMMMMMMMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">    MMMMMMMMMMMMMMMMMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">    MMMM::- -:::::::- -::MMMM</tspan>
-<tspan x="35" dy="1.2em">     MM~:~ 00~:::::~ 00~:~MM</tspan>
-<tspan x="35" dy="1.2em">.. MMMMM::.00:::+:::.00::MMMMM ..</tspan>
-<tspan x="35" dy="1.2em">      .MM::::: ._. :::::MM.</tspan>
-<tspan x="35" dy="1.2em">         MMMM;:::::;MMMM</tspan>
-<tspan x="35" dy="1.2em">  -MM        MMMMMMM</tspan>
-<tspan x="35" dy="1.2em">  ^  M+     MMMMMMMMM</tspan>
-<tspan x="35" dy="1.2em">      MMMMMMM MM MM MM</tspan>
-<tspan x="35" dy="1.2em">           MM MM MM MM</tspan>
-<tspan x="35" dy="1.2em">           MM MM MM MM</tspan>
-<tspan x="35" dy="1.2em">        .~~MM~MM~MM~MM~~.</tspan>
-<tspan x="35" dy="1.2em">     ~~~~MM:~MM~~~MM~:MM~~~~</tspan>
-<tspan x="35" dy="1.2em">    ~~~~~~==~==~~~==~==~~~~~~</tspan>
+    <text x="25" y="80" class="logo" fill="url(#octocat-grad)" xml:space="preserve">
+<tspan x="25" dy="1.1em">       MMM.           .MMM</tspan>
+<tspan x="25" dy="1.1em">       MMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">       MMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">      MMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">     MMMMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">    MMMMMMMMMMMMMMMMMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">    MMMM::- -:::::::- -::MMMM</tspan>
+<tspan x="25" dy="1.1em">     MM~:~ 00~:::::~ 00~:~MM</tspan>
+<tspan x="25" dy="1.1em">.. MMMMM::.00:::+:::.00::MMMMM ..</tspan>
+<tspan x="25" dy="1.1em">      .MM::::: ._. :::::MM.</tspan>
+<tspan x="25" dy="1.1em">         MMMM;:::::;MMMM</tspan>
+<tspan x="25" dy="1.1em">  -MM        MMMMMMM</tspan>
+<tspan x="25" dy="1.1em">  ^  M+     MMMMMMMMM</tspan>
+<tspan x="25" dy="1.1em">      MMMMMMM MM MM MM</tspan>
+<tspan x="25" dy="1.1em">           MM MM MM MM</tspan>
+<tspan x="25" dy="1.1em">           MM MM MM MM</tspan>
+<tspan x="25" dy="1.1em">        .~~MM~MM~MM~MM~~.</tspan>
+<tspan x="25" dy="1.1em">     ~~~~MM:~MM~~~MM~:MM~~~~</tspan>
+<tspan x="25" dy="1.1em">    ~~~~~~==~==~~~==~==~~~~~~</tspan>
     </text>
 
     <!-- Right Column: GitHub & Profile Stats with Nerd Fonts -->
-    <text x="410" y="80" class="text" fill="#cdd6f4" xml:space="preserve">
-<tspan x="410" dy="1.2em" class="title" fill="url(#title-grad)">shnku<tspan fill="#cdd6f4">@</tspan>github</tspan>
-<tspan x="410" dy="1.2em" fill="#6c7086">----------------------------------------</tspan>
+    <text x="430" y="80" class="text" fill="#cdd6f4" xml:space="preserve">
+<tspan x="430" dy="1.2em" class="title" fill="url(#title-grad)">shnku<tspan fill="#cdd6f4">@</tspan>github</tspan>
+<tspan x="430" dy="1.2em" fill="#3f4452">------------------------------------------------</tspan>
 
-<tspan x="410" dy="1.5em"><tspan fill="#E13B8F" font-weight="bold"> Name      </tspan> ShAnku</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold"> Role      </tspan> Student</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#D93A2E" font-weight="bold"> Pronouns  </tspan> He / Him</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#04796F" font-weight="bold"> Bio       </tspan> I'm a Linux Nerd</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold"> Seeking   </tspan> Beginner Guidance</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold">󰚩 Ask Me    </tspan> Linux, Scripting &amp; Deep Learning</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold">󰇮 Contact   </tspan> x.com/ShAnku011011100</tspan>
+<tspan x="430" dy="1.5em"><tspan fill="#E13B8F" font-weight="bold"> Name      </tspan> ShAnku</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#D93A2E" font-weight="bold"> Pronouns  </tspan> He / Him</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold"> Role      </tspan> Student &amp; Learner</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#04796F" font-weight="bold"> Bio       </tspan> Linux Nerd &amp; Experimenterer</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold">󰚩 Ask Me    </tspan> Linux Distros, Desktop Envs &amp; Configs</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold">󰇮 Contact   </tspan> x.com/ShAnku011011100</tspan>
 
-<tspan x="410" dy="1.8em" fill="#6c7086">------------- Development --------------</tspan>
+<tspan x="430" dy="1.7em" fill="#3f4452">----------------- Tech Stack -------------------</tspan>
 
-<!-- Icons-only Languages (Nerd Font glyphs) -->
-<tspan x="410" dy="1.5em">
-  <tspan fill="#E13B8F" font-size="18"></tspan>
-  <tspan fill="#D93A2E" font-size="18"></tspan>
-  <tspan fill="#4BE1C4" font-size="18"></tspan>
-  <tspan fill="#04796F" font-size="18"></tspan>
-  <tspan fill="#89b4fa" font-size="18"></tspan>
-  <tspan fill="#cba6f7" font-size="18"></tspan>
-  <tspan fill="#4BE1C4" font-size="18"></tspan>
-  <tspan fill="#E13B8F" font-size="18">𝖙</tspan>
-</tspan>
+<tspan x="430" dy="1.5em"><tspan fill="#E13B8F" font-weight="bold"> Languages </tspan> <tspan fill="#4BE1C4" font-size="18"> </tspan><tspan fill="#E13B8F" font-size="18"> </tspan><tspan fill="#D93A2E" font-size="18"> </tspan><tspan fill="#04796F" font-size="18"> </tspan><tspan fill="#f9e2af" font-size="18"> </tspan><tspan fill="#89b4fa" font-size="18"> </tspan><tspan fill="#cba6f7" font-size="18"> </tspan></tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#04796F" font-weight="bold">󰒋 Tools     </tspan> <tspan fill="#4BE1C4" font-size="18"> </tspan><tspan fill="#f9e2af" font-size="18"> </tspan><tspan fill="#cba6f7" font-size="18">󰯉 </tspan><tspan fill="#89b4fa" font-size="18"> </tspan><tspan fill="#E13B8F" font-size="18">𝖙 </tspan></tspan>
 
-<!-- Icons-only Tech Stack -->
-<tspan x="410" dy="1.3em">
-  <tspan fill="#4BE1C4" font-size="18"></tspan>
-  <tspan fill="#89b4fa" font-size="18"></tspan>
-  <tspan fill="#E13B8F" font-size="18"></tspan>
-  <tspan fill="#04796F" font-size="18"></tspan>
-</tspan>
+<tspan x="430" dy="1.7em" fill="#3f4452">----------------- Development ------------------</tspan>
 
-<tspan x="410" dy="1.3em"><tspan fill="#04796F" font-weight="bold">󰑣 Learning  </tspan> Sys Design, ML Algos &amp; Python Libs</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold"> Interests </tspan> Visualizing Complex Concepts</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold"> Motto     </tspan> Learn • Build • Visualize</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#89b4fa" font-weight="bold"> Interests </tspan> Visualizing Algorithmic Concepts</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold">󰑣 Learning  </tspan> ML, Algoes, Linear Algebra</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#cba6f7" font-weight="bold"> Motto     </tspan> Learn • Build • Visualize</tspan>
 
-<tspan x="410" dy="1.8em" fill="#6c7086">------------- Daily Driver -------------</tspan>
+<tspan x="430" dy="1.7em" fill="#3f4452">----------------- Daily Driver -----------------</tspan>
 
-<tspan x="410" dy="1.5em"><tspan fill="#89b4fa" font-weight="bold"> OS        </tspan> <tspan fill="#E13B8F">●</tspan> Fedora <tspan fill="#f9e2af">●</tspan> Garuda</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold"> Shell     </tspan> <tspan fill="#D93A2E">●</tspan> zsh <tspan fill="#4BE1C4">●</tspan> fish</tspan>
-<tspan x="410" dy="1.3em"><tspan fill="#04796F" font-weight="bold">󰨞 Editor    </tspan> <tspan fill="#cba6f7">●</tspan> VSCode <tspan fill="#E13B8F">●</tspan> LazyVim</tspan>
+<tspan x="430" dy="1.5em"><tspan fill="#89b4fa" font-weight="bold"> OS        </tspan> <tspan fill="#E13B8F">●</tspan> Fedora <tspan fill="#f9e2af">●</tspan> Garuda</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#4BE1C4" font-weight="bold"> Shell     </tspan> <tspan fill="#D93A2E">●</tspan> zsh <tspan fill="#4BE1C4">●</tspan> fish</tspan>
+<tspan x="430" dy="1.3em"><tspan fill="#04796F" font-weight="bold">󰨞 Editor    </tspan> <tspan fill="#cba6f7">●</tspan> VSCode <tspan fill="#E13B8F">●</tspan> LazyVim</tspan>
 
-<!-- The Classic Neofetch Color Blocks -->
-<tspan x="410" dy="2.2em"><tspan fill="#45475a">███</tspan> <tspan fill="#E13B8F">███</tspan> <tspan fill="#04796F">███</tspan> <tspan fill="#f9e2af">███</tspan> <tspan fill="#4BE1C4">███</tspan></tspan>
-<tspan x="410" dy="1.1em"><tspan fill="#585b70">███</tspan> <tspan fill="#eba0ac">███</tspan> <tspan fill="#94e2d5">███</tspan> <tspan fill="#E13B8F">███</tspan> <tspan fill="#4BE1C4">███</tspan></tspan>
+<!-- Extended Classic Neofetch Color Blocks -->
+<tspan x="430" dy="2.0em"><tspan fill="#2b2d3a">███</tspan> <tspan fill="#E13B8F">███</tspan> <tspan fill="#04796F">███</tspan> <tspan fill="#D93A2E">███</tspan> <tspan fill="#89b4fa">███</tspan> <tspan fill="#cba6f7">███</tspan> <tspan fill="#4BE1C4">███</tspan> <tspan fill="#f9e2af">███</tspan></tspan>
+<tspan x="430" dy="1.1em"><tspan fill="#3f4452">███</tspan> <tspan fill="#f38ba8">███</tspan> <tspan fill="#a6e3a1">███</tspan> <tspan fill="#eba0ac">███</tspan> <tspan fill="#b4befe">███</tspan> <tspan fill="#f5c2e7">███</tspan> <tspan fill="#94e2d5">███</tspan> <tspan fill="#fab387">███</tspan></tspan>
     </text>
 
     <!-- Bottom Status Bar -->
     <rect x="0" y="590" width="920" height="30" fill="#081015" />
-    <text x="900" y="610" font-family="sans-serif" font-size="12" fill="#585b70" text-anchor="end">Last updated: themeed neofetch (nerd fonts) - icons only</text>
+    <text x="900" y="610" font-family="sans-serif" font-size="12" fill="#3f4452" text-anchor="end">Last updated: themed neofetch (nerd fonts) - cyber profile</text>
 </svg>
